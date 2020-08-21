@@ -1,0 +1,93 @@
+-----------------
+- BATTLE CLERIC -
+-----------------
+Player is healer in dungeon delving group. The player is incapable of beating the dungeon[s] on their own so they need to make sure their party members survive.
+Possibly old school fps visuals (Doom/OG Elder scrolls). 
+
+How it fits the theme: Player is "taking care" of their party members
+
+Required features:
+- At least one dungeon with at least one boss
+- First person movement
+- Party member AI
+- Enough player abilites to keep things interesting (e.g. a direct heal, a heal over time, etc)
+
+Option features:
+- Multiple dungeons/bosses
+- Loot
+
+Pros:
+- Low/mid art requirements
+- Once we've got a working version, we can extend onto it easily
+- Low tutorial requirments 
+
+Cons:
+- AI
+
+---------------
+- POTION GAME -
+---------------
+Player takes on contracts to create potions to deal with patient illnesses. They have a list of reagents which each affect patient humors. Illnesses 
+are created by a humor imbalance, the player is trying to rebalance the patient's humors without sending any other humors out of balance. Reagents each
+have a cost, so the player is insentivized to make the cheapest potion possible.
+
+How it fits the theme: Player is "taking care" of their patients
+
+Required features:
+- Potion recipe making UI
+- Reference text (player can refer to this to figure out what causes symptoms and what effects reagents have)
+- Contract interface (allows the player to take on new patients)
+- Shop interface (maybe players buy reagents directly as they make a potion)
+	~ Note keeping interface (somewhere players can make note of what they need to buy, only required if shop is separate interface)
+
+Optional features:
+- Proc-gen illnesses
+- Non-reagent potion steps (like distillation) that affect the outcome of the potion
+- Hidden story (e.g. someone is trying to kill off royal family, uncover plot based on illnesses)
+- Adventure mode (player can go out into world and collect reagents by picking plants and killing monsters)
+
+Pros:
+- Low art requirements 
+- Fairly original (kinda like Big Pharma but not quite)
+
+Cons:
+- Will require in depth tutorial
+- Mental investment might be too high, player bounce off
+
+EXAMPLES
+--------
+Reagents:
+King's root: Increases air / decreases earth in lungs and heart
+Soothe weed: Increases water / decreases fire in skin and intestines
+Arrow root: Increased earth / decreases air in heart, Increases fire / decreases water in intestines
+Powdered Kobold's Tooth: Increases water / decreases fire in mind, Increases earth / decreases air in lungs
+
+Example illnesses:
+Symptoms 
+Heart palpitations (heart, excess air)
+Diarrhea (intestines, excess water)
+Mania (mind, excess fire)
+Dry cough (lungs, excess air)
+--Arrow root, powdered kobold's tooth
+
+Symptoms 
+Rash (skin, excess fire)
+Shortness of breath (lungs, excess earth)
+--King's root, Soothe weed, Arrow root
+
+
+-----------------------------
+- SEVERE ANXIETY STORY GAME -
+-----------------------------
+You play as an office worker with severe anxiety. Game consists of 1+ story vignettes where you try to manage basic office work with anxiety (e.g. you might have to 
+send an email while also playing a stressful minigame on the side).
+
+How it fits the theme: Player is "taking care" of themselves mentally 
+
+Pros:
+- Once we've got a working version, we can extend onto it easily
+- Relatable
+
+Cons:
+- Have to nail feeling of anxiety
+- I'm having a hard time coming up with gameplay
