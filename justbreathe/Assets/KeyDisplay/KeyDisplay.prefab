@@ -159,6 +159,7 @@ GameObject:
   - component: {fileID: 1218925104157559434}
   - component: {fileID: 864344852361158098}
   - component: {fileID: 5102155725937556010}
+  - component: {fileID: 6829672745131510131}
   m_Layer: 5
   m_Name: Graph
   m_TagString: Untagged
@@ -199,11 +200,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 353438c6d05e9764baceecf23b884b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumPoints: 25
+  NumPoints: 50
   DownPosition: -20
   UpPosition: 20
-  pointPrefab: {fileID: 2856644637813583918, guid: 9ba9659fcab30b6489397b11aa9806ef,
-    type: 3}
 --- !u!114 &5102155725937556010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,6 +215,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fabd1d35118dc64cb44dd283306eade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  Thickness: 6
+  pointPositions: []
+--- !u!222 &6829672745131510131
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4543952059831960819}
+  m_CullTransparentMesh: 0
 --- !u!1 &4882228446951149315
 GameObject:
   m_ObjectHideFlags: 0
@@ -591,6 +603,7 @@ MonoBehaviour:
   IsImpulse: 0
   IsDown: 0
   ShouldBeDown: 0
+  KeyCode: 0
 --- !u!1 &7432795559539343323
 GameObject:
   m_ObjectHideFlags: 0

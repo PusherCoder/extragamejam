@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿#pragma warning disable 0649
+
+using UnityEngine;
 
 public class Graph : MonoBehaviour
 {
@@ -6,28 +8,38 @@ public class Graph : MonoBehaviour
     public float DownPosition = -20f;
     public float UpPosition = 20f;
 
-    [SerializeField] private RectTransform pointPrefab;
-
-    private RectTransform myRectTransform;
-    private RectTransform[] points;
+    private bool[] pointBools;
+    private UILineRenderer lineRenderer;
 
     protected void Awake()
     {
-        myRectTransform = GetComponent<RectTransform>();
+        lineRenderer = GetComponent<UILineRenderer>();
+    }
 
-        points = new RectTransform[NumPoints];
-        for (int i = 0; i < NumPoints; i++)
-        {
-            points[i] = Instantiate(pointPrefab, transform);
-            points[i].anchoredPosition = new Vector2(i * (myRectTransform.sizeDelta.x / NumPoints), DownPosition);
-        }
+    private void Update()
+    {
+        lineRenderer.pointPositions = GetPointPositions();
+        lineRenderer.ForceRedraw();
     }
 
     public void SetPoints(bool[] positions)
     {
-        int numIterations = Mathf.Min(positions.Length, NumPoints);
-        for (int i = 0; i < numIterations; i++)
-            points[i].anchoredPosition = new Vector2(points[i].anchoredPosition.x, positions[i] ? DownPosition : UpPosition);
+        pointBools = positions;
+    }
 
+    public Vector2[] GetPointPositions()
+    {
+        if (pointBools == null) return null;
+        if (pointBools.Length < 2) return null;
+
+        Vector2[] pointPosition = new Vector2[NumPoints];
+        for (int i = 0; i < Mathf.Min(NumPoints, pointBools.Length); i++)
+        {
+            pointPosition[i] = new Vector2(
+                (float)i / NumPoints,
+                pointBools[i] ? 0f : 1f);
+        }
+
+        return pointPosition;
     }
 }
