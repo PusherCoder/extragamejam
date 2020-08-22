@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class KeyDisplay : MonoBehaviour
 {
+    private const float HealthFillDown = .5f;
+    private const float HealthFillUp = .25f;
+
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI keyText;
     [SerializeField] private Image keyStateImage;
@@ -23,6 +26,7 @@ public class KeyDisplay : MonoBehaviour
     public bool IsImpulse;
     public bool IsDown;
     public bool ShouldBeDown;
+    public UnityEngine.KeyCode KeyCode;
 
     private bool nextShouldBeDown;
     private Graph graph;
@@ -74,13 +78,23 @@ public class KeyDisplay : MonoBehaviour
 
         FillAmount = Mathf.Clamp01(FillAmount);
         fillTransform.sizeDelta = new Vector2(maxFillWidth * FillAmount, fillTransform.sizeDelta.y);
+
+        if (Input.GetKey(KeyCode)) KeyState = "Down";
+        else KeyState = "Up";
+
+        //Maybe just decrease the health a little bit every frame?
+        if (KeyState != TargetState)
+            FillAmount -= Time.deltaTime * HealthFillDown;
+        else
+            FillAmount += Time.deltaTime * HealthFillUp;
     }
 
-    public void SetInitalValues(string keyName, float timeUp, float timeDown, bool impulse)
+    public void SetInitalValues(string keyName, float timeUp, float timeDown, bool impulse, UnityEngine.KeyCode key)
     {
         Key = keyName;
         TimeDown = timeDown;
         TimeUp = timeUp;
         IsImpulse = impulse;
+        KeyCode = key;
     }
 }
