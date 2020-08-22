@@ -7,8 +7,9 @@ using UnityEngine.UI;
 
 public class KeyDisplay : MonoBehaviour
 {
-    private const float HealthFillDown = .5f;
-    private const float HealthFillUp = .25f;
+    private const float HealthFillDown = .33f;
+    private const float HealthFillUp = .2f;
+    private const int ImpulseKeyForgiveness = 7;
 
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI keyText;
@@ -30,24 +31,28 @@ public class KeyDisplay : MonoBehaviour
     private AudioSource audioSource;
 
     [Header("Vars")]
-    public string Key;
+    public InputStyle InputStyle;
+    private bool graphImpulseBuffered = false;
+
+    public string KeyName;
     public float FillAmount;
     public float TimeUp;
     public float TimeDown;
-    public bool IsImpulse;
     public bool IsDown;
     private bool wasDown;
     public bool ShouldBeDown;
-    public KeyCode KeyCode;
+    public KeyCode Key;
 
     private bool nextShouldBeDown;
     private Graph graph;
     private bool[] bufferedShouldBeDown;
+    private bool[] bufferedShouldBeDownImpulse;
 
     private void Awake()
     {
         graph = GetComponentInChildren<Graph>();
         bufferedShouldBeDown = new bool[graph.NumPoints];
+        bufferedShouldBeDownImpulse = new bool[graph.NumPoints + ImpulseKeyForgiveness];
         
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.clip = clip;
@@ -63,9 +68,17 @@ public class KeyDisplay : MonoBehaviour
         nextShouldBeDown = false;
         while (true)
         {
-            if (nextShouldBeDown) yield return new WaitForSeconds(TimeDown);
-            else yield return new WaitForSeconds(TimeUp);
-            nextShouldBeDown = !nextShouldBeDown;
+            if (InputStyle == InputStyle.UpDown)
+            {
+                if (nextShouldBeDown) yield return new WaitForSeconds(TimeDown);
+                else yield return new WaitForSeconds(TimeUp);
+                nextShouldBeDown = !nextShouldBeDown;
+            }
+            else if (InputStyle == InputStyle.Impulse)
+            {
+                yield return new WaitForSeconds(TimeDown);
+                graphImpulseBuffered = true;
+            }
         }
     }
 
@@ -74,9 +87,22 @@ public class KeyDisplay : MonoBehaviour
         while (true)
         {
             for (int i = 0; i < bufferedShouldBeDown.Length - 1; i++)
+            {
                 bufferedShouldBeDown[i] = bufferedShouldBeDown[i + 1];
-            bufferedShouldBeDown[bufferedShouldBeDown.Length - 1] = nextShouldBeDown;
+                bufferedShouldBeDownImpulse[i] = bufferedShouldBeDownImpulse[i + 1];
+            }
+
+            if (InputStyle == InputStyle.UpDown)
+                bufferedShouldBeDown[bufferedShouldBeDown.Length - 1] = nextShouldBeDown;
+            else
+            {
+                bufferedShouldBeDown[bufferedShouldBeDown.Length - 1] = graphImpulseBuffered;
+                bufferedShouldBeDownImpulse[bufferedShouldBeDown.Length - 1] = graphImpulseBuffered;
+            }
+            graphImpulseBuffered = false;
+
             ShouldBeDown = bufferedShouldBeDown[0];
+      
             graph.SetPoints(bufferedShouldBeDown);
 
             yield return new WaitForSeconds(.05f);
@@ -86,6 +112,7 @@ public class KeyDisplay : MonoBehaviour
     private void Update()
     {
         UpdateUI();
+        UpdateHealth();
         UpdateAudio();
 
         wasDown = IsDown;
@@ -115,7 +142,7 @@ public class KeyDisplay : MonoBehaviour
 
     private void UpdateUI()
     {
-        keyText.text = Key;
+        keyText.text = KeyName;
 
         if (IsDown) keyStateImage.sprite = downArrow;
         else keyStateImage.sprite = upArrow;
@@ -126,28 +153,66 @@ public class KeyDisplay : MonoBehaviour
         FillAmount = Mathf.Clamp01(FillAmount);
         fillTransform.sizeDelta = new Vector2(maxFillWidth * FillAmount, fillTransform.sizeDelta.y);
 
-        IsDown = Input.GetKey(KeyCode);
+        IsDown = Input.GetKey(Key);
+    }
 
-        if (IsDown != ShouldBeDown)
+    private bool inKeyPressTime;
+    private void UpdateHealth()
+    {
+        if (InputStyle == InputStyle.UpDown)
         {
-            FillAmount -= Time.deltaTime * HealthFillDown;
-            keyStateImage.color = incorrectColor;
+            if (IsDown != ShouldBeDown)
+            {
+                FillAmount -= Time.deltaTime * HealthFillDown;
+                keyStateImage.color = incorrectColor;
+            }
+            else
+            {
+                FillAmount += Time.deltaTime * HealthFillUp;
+                keyStateImage.color = correctColor;
+            }
         }
-        else
+        else if (InputStyle == InputStyle.Impulse)
         {
             FillAmount += Time.deltaTime * HealthFillUp;
-            keyStateImage.color = correctColor;
+
+            bool foundKeyPressRequired = false;
+            for (int i = 0; i < ImpulseKeyForgiveness * 2; i++)
+                foundKeyPressRequired = foundKeyPressRequired || bufferedShouldBeDownImpulse[i];
+
+            if (foundKeyPressRequired && inKeyPressTime == false)
+                inKeyPressTime = true;
+            else if (foundKeyPressRequired == false && inKeyPressTime)
+            {
+                inKeyPressTime = false;
+                FillAmount -= HealthFillDown;
+            }
+
+            if (Input.GetKeyDown(Key))
+            {
+                if (inKeyPressTime)
+                {
+                    for (int i = 0; i < ImpulseKeyForgiveness*2; i++)
+                        bufferedShouldBeDownImpulse[i] = false;
+                    inKeyPressTime = false;
+                }
+                else
+                {
+                    FillAmount -= HealthFillDown;
+                }
+            }
         }
     }
 
-    public void SetInitalValues(string keyName, float timeUp, float timeDown, bool impulse, UnityEngine.KeyCode key)
+    public void SetInitalValues(string keyName, float timeUp, float timeDown, InputStyle inputStyle, KeyCode key)
     {
-        Key = keyName;
+        KeyName = keyName;
         TimeDown = timeDown;
         TimeUp = timeUp;
-        IsImpulse = impulse;
-        KeyCode = key;
+        InputStyle = inputStyle;
+        Key = key;
     }
 }
 
 public enum AudioPlayMode { OnKeyStateChanged, OnKeyPressed, OnKeyStateChanged2Clip }
+public enum InputStyle { UpDown, Impulse }

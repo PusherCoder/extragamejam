@@ -37,7 +37,7 @@ public class Graph : MonoBehaviour
         {
             pointPosition[i] = new Vector2(
                 (float)i / NumPoints,
-                pointBools[i] ? 0f : 1f);
+                pointBools[i] ? 1f : 0f);
         }
 
         return pointPosition;

@@ -1,18 +1,17 @@
 ﻿#pragma warning disable 0649
 
-using System.Collections;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private KeyDisplay EKey;
-    [SerializeField] private KeyDisplay FKey;
+    [SerializeField] private KeyDisplay BreathKey;
+    [SerializeField] private KeyDisplay HeartKey;
 
     // Start is called before the first frame update
     void Start()
     {
-        EKey.SetInitalValues("E", 2.0f, 2.0f, false, KeyCode.E);
-        FKey.SetInitalValues("F", 1.0f, 1.0f, false, KeyCode.F);
+        BreathKey.SetInitalValues("F", 2.0f, 2.0f, InputStyle.UpDown, KeyCode.F);
+        HeartKey.SetInitalValues("_", 1.0f, 1.0f, InputStyle.Impulse, KeyCode.Space);
     }
 
     // Update is called once per frame
