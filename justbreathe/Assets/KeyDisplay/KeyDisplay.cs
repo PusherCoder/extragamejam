@@ -198,8 +198,6 @@ public class KeyDisplay : MonoBehaviour
     {
         if (Active == false || canvasGroup.alpha < .95f) return;
 
-        keyText.text = KeyName;
-
         if (IsDown) keyStateImage.sprite = downArrow;
         else keyStateImage.sprite = upArrow;
 
