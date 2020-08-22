@@ -19,19 +19,16 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if( Input.GetKey(KeyCode.E) ) EKey.KeyState = "Down";
-        else EKey.KeyState = "Up";
-
-        if(Input.GetKey(KeyCode.F))  FKey.KeyState = "Down";
-        else FKey.KeyState = "Up";
+        EKey.IsDown = Input.GetKey(KeyCode.E);
+        FKey.IsDown = Input.GetKey(KeyCode.F);
 
         //Maybe just decrease the health a little bit every frame?
-        if (EKey.KeyState != EKey.TargetState)
+        if (EKey.IsDown != EKey.ShouldBeDown)
             EKey.FillAmount -= Time.deltaTime * HealthFillDown;
         else
             EKey.FillAmount += Time.deltaTime * HealthFillUp;
 
-        if (FKey.KeyState != FKey.TargetState)
+        if (FKey.IsDown != FKey.ShouldBeDown)
             FKey.FillAmount -= Time.deltaTime * HealthFillDown;
         else
             FKey.FillAmount += Time.deltaTime * HealthFillUp;
