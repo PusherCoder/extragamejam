@@ -3,27 +3,17 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private const float ETimeInit = 1.0f;
-    private const float FTimeInit = 2.0f;
     private const float HealthFillDown = .5f;
     private const float HealthFillUp = .25f;
-    private const float HealthTimeInit = 0.4f;
 
-    private float ETimeDown;
-    private float ETimeUp;
-    private float FTimeDown;
-    private float FTimeUp;
-    private float HealthCheck;
-    private KeyDisplay EKey;
-    private KeyDisplay FKey;
+    [SerializeField] private KeyDisplay EKey;
+    [SerializeField] private KeyDisplay FKey;
 
     // Start is called before the first frame update
     void Start()
     {
-        EKey = KeyDisplayContainer.CreateKeyDisplay("E", 1.0f, 1.0f, false);
-        FKey = KeyDisplayContainer.CreateKeyDisplay("F", 2.0f, 2.0f, false);
-
-        HealthCheck = HealthTimeInit;
+        EKey.SetInitalValues("E", 1.0f, 1.0f, false);
+        FKey.SetInitalValues("F", 2.0f, 2.0f, false);
     }
 
     // Update is called once per frame

@@ -46,4 +46,12 @@ public class KeyDisplay : MonoBehaviour
         FillAmount = Mathf.Clamp01(FillAmount);
         fillTransform.sizeDelta = new Vector2(maxFillWidth * FillAmount, fillTransform.sizeDelta.y);
     }
+
+    public void SetInitalValues(string keyName, float timeUp, float timeDown, bool impulse)
+    {
+        Key = keyName;
+        TimeDown = timeDown;
+        TimeUp = timeUp;
+        IsImpulse = impulse;
+    }
 }
