@@ -954,12 +954,12 @@ PrefabInstance:
     - target: {fileID: 7432795559447334513, guid: 2e93b0f08a2fdc745a30dd9d2559cd8b,
         type: 3}
       propertyPath: m_Name
-      value: KeyDisplayF
+      value: KeyDisplayHeart
       objectReference: {fileID: 0}
     - target: {fileID: 7432795559447334515, guid: 2e93b0f08a2fdc745a30dd9d2559cd8b,
         type: 3}
       propertyPath: Key
-      value: E
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7432795559447334515, guid: 2e93b0f08a2fdc745a30dd9d2559cd8b,
         type: 3}
@@ -1089,8 +1089,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8077920d8f24c944965af48c340f1ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EKey: {fileID: 279302856}
-  FKey: {fileID: 1007157024}
+  BreathKey: {fileID: 279302856}
+  HeartKey: {fileID: 1007157024}
 --- !u!4 &1526096061
 Transform:
   m_ObjectHideFlags: 0
@@ -1475,7 +1475,7 @@ PrefabInstance:
     - target: {fileID: 7432795559447334513, guid: 2e93b0f08a2fdc745a30dd9d2559cd8b,
         type: 3}
       propertyPath: m_Name
-      value: KeyDisplayE
+      value: KeyDisplayBreath
       objectReference: {fileID: 0}
     - target: {fileID: 7432795559447334515, guid: 2e93b0f08a2fdc745a30dd9d2559cd8b,
         type: 3}
