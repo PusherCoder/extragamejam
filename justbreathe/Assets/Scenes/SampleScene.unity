@@ -961,6 +961,11 @@ PrefabInstance:
       propertyPath: Key
       value: E
       objectReference: {fileID: 0}
+    - target: {fileID: 7432795559447334515, guid: 2e93b0f08a2fdc745a30dd9d2559cd8b,
+        type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 369717124cc7a6c489cc99b7285d116e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e93b0f08a2fdc745a30dd9d2559cd8b, type: 3}
 --- !u!224 &1007157023 stripped
@@ -1201,6 +1206,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1218925104157559434, guid: 2e93b0f08a2fdc745a30dd9d2559cd8b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1271451863659832664, guid: 2e93b0f08a2fdc745a30dd9d2559cd8b,
         type: 3}
@@ -1466,6 +1476,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: KeyDisplayE
+      objectReference: {fileID: 0}
+    - target: {fileID: 7432795559447334515, guid: 2e93b0f08a2fdc745a30dd9d2559cd8b,
+        type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7ab807739d3e6914483e0d800da1f583, type: 3}
+    - target: {fileID: 7432795559447334515, guid: 2e93b0f08a2fdc745a30dd9d2559cd8b,
+        type: 3}
+      propertyPath: clip2
+      value: 
+      objectReference: {fileID: 8300000, guid: 0cc88e9b30b460a48b6982b1794b5236, type: 3}
+    - target: {fileID: 7432795559447334515, guid: 2e93b0f08a2fdc745a30dd9d2559cd8b,
+        type: 3}
+      propertyPath: clipPlayMode
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e93b0f08a2fdc745a30dd9d2559cd8b, type: 3}

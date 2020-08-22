@@ -596,6 +596,8 @@ MonoBehaviour:
   maxFillWidth: 300
   upArrow: {fileID: 21300000, guid: 7ada71f000e4d9c409a891c0e98d22ea, type: 3}
   downArrow: {fileID: 21300000, guid: c8c70a876a986d24ea7f1b3b300acb0d, type: 3}
+  correctColor: {r: 1, g: 1, b: 1, a: 1}
+  incorrectColor: {r: 0.7830189, g: 0.22530258, b: 0.22530258, a: 1}
   Key: F
   FillAmount: 1
   TimeUp: 0

@@ -19,6 +19,15 @@ public class KeyDisplay : MonoBehaviour
 
     [SerializeField] private Sprite upArrow;
     [SerializeField] private Sprite downArrow;
+    [SerializeField] private Color correctColor;
+    [SerializeField] private Color incorrectColor;
+
+    [Header("SFX")]
+    [SerializeField] private AudioClip clip;
+    [SerializeField] private AudioClip clip2;
+    [SerializeField] private AudioPlayMode clipPlayMode;
+    [SerializeField] private float volume = .5f;
+    private AudioSource audioSource;
 
     [Header("Vars")]
     public string Key;
@@ -27,6 +36,7 @@ public class KeyDisplay : MonoBehaviour
     public float TimeDown;
     public bool IsImpulse;
     public bool IsDown;
+    private bool wasDown;
     public bool ShouldBeDown;
     public KeyCode KeyCode;
 
@@ -38,6 +48,11 @@ public class KeyDisplay : MonoBehaviour
     {
         graph = GetComponentInChildren<Graph>();
         bufferedShouldBeDown = new bool[graph.NumPoints];
+        
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.clip = clip;
+        audioSource.volume = volume;
+        audioSource.playOnAwake = false;
 
         StartCoroutine(KeyTimer_Co());
         StartCoroutine(BufferedInput_Co());
@@ -70,6 +85,36 @@ public class KeyDisplay : MonoBehaviour
 
     private void Update()
     {
+        UpdateUI();
+        UpdateAudio();
+
+        wasDown = IsDown;
+    }
+
+    private void UpdateAudio()
+    {
+        if (clip == null) return;
+        if (clip2 == null && clipPlayMode == AudioPlayMode.OnKeyStateChanged2Clip) return;
+        if (audioSource == null) return;
+
+        if ((clipPlayMode == AudioPlayMode.OnKeyStateChanged) && (wasDown != IsDown))
+            audioSource.Play();
+        else if ((clipPlayMode == AudioPlayMode.OnKeyPressed) && wasDown == false && IsDown == true)
+            audioSource.Play();
+        else if ((clipPlayMode == AudioPlayMode.OnKeyStateChanged2Clip) && wasDown == false && IsDown == true)
+        {
+            audioSource.clip = clip;
+            audioSource.Play();
+        }
+        else if ((clipPlayMode == AudioPlayMode.OnKeyStateChanged2Clip) && wasDown == true && IsDown == false)
+        {
+            audioSource.clip = clip2;
+            audioSource.Play();
+        }
+    }
+
+    private void UpdateUI()
+    {
         keyText.text = Key;
 
         if (IsDown) keyStateImage.sprite = downArrow;
@@ -83,11 +128,16 @@ public class KeyDisplay : MonoBehaviour
 
         IsDown = Input.GetKey(KeyCode);
 
-        //Maybe just decrease the health a little bit every frame?
         if (IsDown != ShouldBeDown)
+        {
             FillAmount -= Time.deltaTime * HealthFillDown;
+            keyStateImage.color = incorrectColor;
+        }
         else
+        {
             FillAmount += Time.deltaTime * HealthFillUp;
+            keyStateImage.color = correctColor;
+        }
     }
 
     public void SetInitalValues(string keyName, float timeUp, float timeDown, bool impulse, UnityEngine.KeyCode key)
@@ -99,3 +149,5 @@ public class KeyDisplay : MonoBehaviour
         KeyCode = key;
     }
 }
+
+public enum AudioPlayMode { OnKeyStateChanged, OnKeyPressed, OnKeyStateChanged2Clip }

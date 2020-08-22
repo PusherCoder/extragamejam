@@ -11,8 +11,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EKey.SetInitalValues("E", 1.0f, 1.0f, false, KeyCode.E);
-        FKey.SetInitalValues("F", 2.0f, 2.0f, false, KeyCode.F);
+        EKey.SetInitalValues("E", 2.0f, 2.0f, false, KeyCode.E);
+        FKey.SetInitalValues("F", 1.0f, 1.0f, false, KeyCode.F);
     }
 
     // Update is called once per frame
