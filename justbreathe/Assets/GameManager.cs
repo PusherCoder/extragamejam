@@ -3,9 +3,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private const float HealthFillDown = .5f;
-    private const float HealthFillUp = .25f;
-
     [SerializeField] private KeyDisplay EKey;
     [SerializeField] private KeyDisplay FKey;
 
@@ -19,15 +16,5 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Maybe just decrease the health a little bit every frame?
-        if (EKey.KeyState != EKey.TargetState)
-            EKey.FillAmount -= Time.deltaTime * HealthFillDown;
-        else
-            EKey.FillAmount += Time.deltaTime * HealthFillUp;
-
-        if (FKey.KeyState != FKey.TargetState)
-            FKey.FillAmount -= Time.deltaTime * HealthFillDown;
-        else
-            FKey.FillAmount += Time.deltaTime * HealthFillUp;
     }
 }

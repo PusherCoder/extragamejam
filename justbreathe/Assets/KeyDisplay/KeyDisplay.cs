@@ -4,6 +4,9 @@ using TMPro;
 
 public class KeyDisplay : MonoBehaviour
 {
+    private const float HealthFillDown = .5f;
+    private const float HealthFillUp = .25f;
+
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI keyText;
     [SerializeField] private TextMeshProUGUI keyStateText;
@@ -51,6 +54,12 @@ public class KeyDisplay : MonoBehaviour
 
         if (Input.GetKey(KeyCode)) KeyState = "Down";
         else KeyState = "Up";
+
+        //Maybe just decrease the health a little bit every frame?
+        if (KeyState != TargetState)
+            FillAmount -= Time.deltaTime * HealthFillDown;
+        else
+            FillAmount += Time.deltaTime * HealthFillUp;
     }
 
     public void SetInitalValues(string keyName, float timeUp, float timeDown, bool impulse, UnityEngine.KeyCode key)
