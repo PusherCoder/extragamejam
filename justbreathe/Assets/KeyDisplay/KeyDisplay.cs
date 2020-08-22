@@ -20,6 +20,7 @@ public class KeyDisplay : MonoBehaviour
     public float TimeDown;
     public bool IsImpulse;
     public bool ShouldBeDown;
+    public UnityEngine.KeyCode KeyCode;
 
     private void Awake()
     {
@@ -47,13 +48,17 @@ public class KeyDisplay : MonoBehaviour
 
         FillAmount = Mathf.Clamp01(FillAmount);
         fillTransform.sizeDelta = new Vector2(maxFillWidth * FillAmount, fillTransform.sizeDelta.y);
+
+        if (Input.GetKey(KeyCode)) KeyState = "Down";
+        else KeyState = "Up";
     }
 
-    public void SetInitalValues(string keyName, float timeUp, float timeDown, bool impulse)
+    public void SetInitalValues(string keyName, float timeUp, float timeDown, bool impulse, UnityEngine.KeyCode key)
     {
         Key = keyName;
         TimeDown = timeDown;
         TimeUp = timeUp;
         IsImpulse = impulse;
+        KeyCode = key;
     }
 }

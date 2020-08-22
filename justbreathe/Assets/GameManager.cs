@@ -12,19 +12,13 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EKey.SetInitalValues("E", 1.0f, 1.0f, false);
-        FKey.SetInitalValues("F", 2.0f, 2.0f, false);
+        EKey.SetInitalValues("E", 1.0f, 1.0f, false, KeyCode.E);
+        FKey.SetInitalValues("F", 2.0f, 2.0f, false, KeyCode.F);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if( Input.GetKey(KeyCode.E) ) EKey.KeyState = "Down";
-        else EKey.KeyState = "Up";
-
-        if(Input.GetKey(KeyCode.F))  FKey.KeyState = "Down";
-        else FKey.KeyState = "Up";
-
         //Maybe just decrease the health a little bit every frame?
         if (EKey.KeyState != EKey.TargetState)
             EKey.FillAmount -= Time.deltaTime * HealthFillDown;
