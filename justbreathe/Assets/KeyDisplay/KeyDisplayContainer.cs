@@ -9,9 +9,6 @@ public class KeyDisplayContainer : MonoBehaviour
     private void Awake()
     {
         instance = this;
-
-        CreateKeyDisplay("E");
-        CreateKeyDisplay("F");
     }
 
     public static KeyDisplay CreateKeyDisplay(string keyName)
