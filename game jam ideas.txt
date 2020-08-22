@@ -77,17 +77,31 @@ Shortness of breath (lungs, excess earth)
 
 
 -----------------------------
-- SEVERE ANXIETY STORY GAME -
+-        JUST BREATHE       -
 -----------------------------
-You play as an office worker with severe anxiety. Game consists of 1+ story vignettes where you try to manage basic office work with anxiety (e.g. you might have to 
-send an email while also playing a stressful minigame on the side).
+You play as the autonomous nervous system of an anonymous person with anxiety problem. As they go about their daily routine, you use up to four keyboard keys
+to control various functions of their body. Examples would be blinking, breathing, heartbeat, farting (sure), digestion, and perspiration. Each function is
+bound to a keyboard key, and the player is given a DDR-esque graphic to show which keys they should be pressing, when they should be pressing them, and how
+long they should be holding them. If the player does NOT hold the correct keys down at the correct times, a health bar for that key drains. Once it reaches
+zero, the game ends.
+
+The levels of the game consist of the anonymous person going through several different tasks. Things like waking up, running, having a difficult conversation,
+and cooking can focus on different combinations of autonomous functions. On easier levels, the functions will sync up in a rhythm-like fashion, but in later
+levels the functions will be skewed and offset from each other.
+
+During the course of the level, the player will be set upon by a random anxiety attack. These anxieties take the form of something similar to the witch familiars
+from Madoka Magica (real f***ed up paper cutout abominations), which will swarm the screen. They can do anything from messing with the cycle of an input to just
+obstructing parts of the interface in general. The mouse will be used to try and ward them away, and doing so will reward the player with a brief reduction in
+difficulty and a soothing music prelude.
 
 How it fits the theme: Player is "taking care" of themselves mentally 
 
 Pros:
 - Once we've got a working version, we can extend onto it easily
+- Base programming is relatively straightforward
 - Relatable
 
 Cons:
 - Have to nail feeling of anxiety
-- I'm having a hard time coming up with gameplay
+- Graphics will have to be pretty good to convey the message of the game
+- Sound design will be crucial
