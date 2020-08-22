@@ -1,14 +1,12 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
     private const float ETimeInit = 1.0f;
     private const float FTimeInit = 2.0f;
-    private const float HealthFillDown = 0.02f;
-    private const float HealthFillUp = 0.01f;
+    private const float HealthFillDown = .5f;
+    private const float HealthFillUp = .25f;
     private const float HealthTimeInit = 0.4f;
 
     private float ETimeDown;
@@ -25,6 +23,9 @@ public class GameManager : MonoBehaviour
         EKey = KeyDisplayContainer.CreateKeyDisplay("E");
         FKey = KeyDisplayContainer.CreateKeyDisplay("F");
 
+        StartCoroutine(EKeyTimer_Co());
+        StartCoroutine(FKeyTimer_Co());
+
         ETimeDown = ETimeInit;
         ETimeUp = ETimeInit;
         FTimeDown = FTimeInit;
@@ -32,76 +33,59 @@ public class GameManager : MonoBehaviour
         HealthCheck = HealthTimeInit;
     }
 
-    bool TimerCheck( ref float DownTimer, ref float UpTimer, float initial )
-    {
-        if( DownTimer > 0 )
-        {
-            DownTimer -= Time.deltaTime;
-            if( DownTimer < 0 )
-            {
-                UpTimer = initial;
-                return true;
-            }
-        }
-        else
-        {
-            UpTimer -= Time.deltaTime;
-            if (UpTimer < 0)
-            {
-                DownTimer = initial;
-                return true;
-            }
-        }
+    private bool eShouldBeDown;
+    private bool fShouldBeDown;
 
-        return false;
+    private IEnumerator EKeyTimer_Co()
+    {
+        eShouldBeDown = false;
+        while (true)
+        {
+            yield return new WaitForSeconds(ETimeInit);
+            eShouldBeDown = !eShouldBeDown;
+        }
     }
+
+    private IEnumerator FKeyTimer_Co()
+    {
+        fShouldBeDown = false;
+        while (true)
+        {
+            yield return new WaitForSeconds(FTimeInit);
+            fShouldBeDown = !fShouldBeDown;
+        }
+    }
+
 
     // Update is called once per frame
     void Update()
     {
-        if( Input.GetKey(KeyCode.E) )
-        {
-            EKey.KeyState = "Down";
-        }
+        if( Input.GetKey(KeyCode.E) ) EKey.KeyState = "Down";
+        else EKey.KeyState = "Up";
+
+        if (Input.GetKey(KeyCode.F))  FKey.KeyState = "Down";
+        else FKey.KeyState = "Up";
+
+        if(eShouldBeDown) EKey.TargetState = "Down";
+        else EKey.TargetState = "Up";
+
+        if ( fShouldBeDown )  FKey.TargetState = "Down";
+        else FKey.TargetState = "Up";
+
+
+        //Maybe just decrease the health a little bit every frame?
+        if (EKey.KeyState != EKey.TargetState)
+            EKey.FillAmount -= Time.deltaTime * HealthFillDown;
         else
-        {
-            EKey.KeyState = "Up";
-        }
+            EKey.FillAmount += Time.deltaTime * HealthFillUp;
 
-        if (Input.GetKey(KeyCode.F))
-        {
-            FKey.KeyState = "Down";
-        }
+        if (FKey.KeyState != FKey.TargetState)
+            FKey.FillAmount -= Time.deltaTime * HealthFillDown;
         else
-        {
-            FKey.KeyState = "Up";
-        }
+            FKey.FillAmount += Time.deltaTime * HealthFillUp;
 
-        if( TimerCheck( ref ETimeDown, ref ETimeUp, ETimeInit ) )
-        {
-            if( ETimeDown < 0 )
-            {
-                EKey.TargetState = "Up";
-            }
-            else
-            {
-                EKey.TargetState = "Down";
-            }
-        }
 
-        if (TimerCheck(ref FTimeDown, ref FTimeUp, FTimeInit))
-        {
-            if (FTimeDown < 0)
-            {
-                FKey.TargetState = "Up";
-            }
-            else
-            {
-                FKey.TargetState = "Down";
-            }
-        }
-
-        HealthCheck -= Time.deltaTime;
+        /*HealthCheck -= Time.deltaTime;
         if( HealthCheck < 0 )
         {
             if( EKey.KeyState != EKey.TargetState )
@@ -122,7 +106,6 @@ public class GameManager : MonoBehaviour
                 FKey.FillAmount += HealthFillUp;
             }
             HealthCheck = HealthTimeInit;
-        }
-
+        }*/
     }
 }
