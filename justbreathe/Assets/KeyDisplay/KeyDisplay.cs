@@ -26,7 +26,7 @@ public class KeyDisplay : MonoBehaviour
     public bool IsImpulse;
     public bool IsDown;
     public bool ShouldBeDown;
-    public UnityEngine.KeyCode KeyCode;
+    public KeyCode KeyCode;
 
     private bool nextShouldBeDown;
     private Graph graph;
@@ -79,11 +79,10 @@ public class KeyDisplay : MonoBehaviour
         FillAmount = Mathf.Clamp01(FillAmount);
         fillTransform.sizeDelta = new Vector2(maxFillWidth * FillAmount, fillTransform.sizeDelta.y);
 
-        if (Input.GetKey(KeyCode)) KeyState = "Down";
-        else KeyState = "Up";
+        IsDown = Input.GetKey(KeyCode);
 
         //Maybe just decrease the health a little bit every frame?
-        if (KeyState != TargetState)
+        if (IsDown != ShouldBeDown)
             FillAmount -= Time.deltaTime * HealthFillDown;
         else
             FillAmount += Time.deltaTime * HealthFillUp;
