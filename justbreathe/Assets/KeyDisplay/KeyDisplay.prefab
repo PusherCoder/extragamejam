@@ -558,9 +558,9 @@ MonoBehaviour:
   fillTransform: {fileID: 7432795559539343322}
   maxFillWidth: 225
   Key: 'E:'
-  KeyState: up
-  TargetState: down
-  FillAmount: 0
+  KeyState: Up
+  TargetState: Down
+  FillAmount: 1
 --- !u!1 &7432795559539343323
 GameObject:
   m_ObjectHideFlags: 0
