@@ -1145,10 +1145,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1888,8 +1888,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1460527385}
-        m_MethodName: ToggleHerbloreTextbook
+      - m_Target: {fileID: 1460527386}
+        m_MethodName: BrewPotion
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2576,7 +2576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.71599996, g: 0.71599996, b: 0.71599996, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -3042,7 +3042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patientInfoText: {fileID: 1676800202}
-  potionResultText: {fileID: 0}
+  potionResultText: {fileID: 1407291489}
 --- !u!4 &1460527387
 Transform:
   m_ObjectHideFlags: 0
