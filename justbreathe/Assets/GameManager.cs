@@ -25,13 +25,6 @@ public class GameManager : MonoBehaviour
         if(Input.GetKey(KeyCode.F))  FKey.KeyState = "Down";
         else FKey.KeyState = "Up";
 
-        if(EKey.ShouldBeDown) EKey.TargetState = "Down";
-        else EKey.TargetState = "Up";
-
-        if(FKey.ShouldBeDown)  FKey.TargetState = "Down";
-        else FKey.TargetState = "Up";
-
-
         //Maybe just decrease the health a little bit every frame?
         if (EKey.KeyState != EKey.TargetState)
             EKey.FillAmount -= Time.deltaTime * HealthFillDown;

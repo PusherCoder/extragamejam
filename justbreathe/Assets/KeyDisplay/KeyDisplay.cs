@@ -34,6 +34,8 @@ public class KeyDisplay : MonoBehaviour
             if (ShouldBeDown) yield return new WaitForSeconds(TimeDown);
             else yield return new WaitForSeconds(TimeUp);
             ShouldBeDown = !ShouldBeDown;
+            if (ShouldBeDown) TargetState = "Down";
+            else TargetState = "Up";
         }
     }
 
