@@ -7,9 +7,11 @@ using UnityEngine.UI;
 
 public class KeyDisplay : MonoBehaviour
 {
-    private const float HealthFillDown = .33f;
+    private const float HealthFillDown = .4f;
     private const float HealthFillUp = .2f;
     private const int ImpulseKeyForgiveness = 7;
+
+    public bool Active;
 
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI keyText;
@@ -22,6 +24,8 @@ public class KeyDisplay : MonoBehaviour
     [SerializeField] private Sprite downArrow;
     [SerializeField] private Color correctColor;
     [SerializeField] private Color incorrectColor;
+
+    [SerializeField] private CanvasGroup organCanvasGroup;
 
     [Header("SFX")]
     [SerializeField] private AudioClip clip;
@@ -48,6 +52,8 @@ public class KeyDisplay : MonoBehaviour
     private bool[] bufferedShouldBeDown;
     private bool[] bufferedShouldBeDownImpulse;
 
+    private CanvasGroup canvasGroup;
+
     private void Awake()
     {
         graph = GetComponentInChildren<Graph>();
@@ -58,6 +64,28 @@ public class KeyDisplay : MonoBehaviour
         audioSource.clip = clip;
         audioSource.volume = volume;
         audioSource.playOnAwake = false;
+
+        canvasGroup = GetComponent<CanvasGroup>();
+        if (Active)
+        {
+            canvasGroup.alpha = 1;
+            canvasGroup.interactable = true;
+            canvasGroup.blocksRaycasts = true;
+            
+            organCanvasGroup.alpha = 1;
+            organCanvasGroup.interactable = true;
+            organCanvasGroup.blocksRaycasts = true;
+        }
+        else
+        {
+            canvasGroup.alpha = 0;
+            canvasGroup.interactable = false;
+            canvasGroup.blocksRaycasts = false;
+
+            organCanvasGroup.alpha = 0;
+            organCanvasGroup.interactable = false;
+            organCanvasGroup.blocksRaycasts = false;
+        }
 
         StartCoroutine(KeyTimer_Co());
         StartCoroutine(BufferedInput_Co());
@@ -111,6 +139,7 @@ public class KeyDisplay : MonoBehaviour
 
     private void Update()
     {
+        CheckActive();
         UpdateUI();
         UpdateHealth();
         UpdateAudio();
@@ -118,8 +147,33 @@ public class KeyDisplay : MonoBehaviour
         wasDown = IsDown;
     }
 
+    private void CheckActive()
+    {
+        if (Active)
+        {
+            canvasGroup.alpha = Mathf.MoveTowards(canvasGroup.alpha, 1f, Time.deltaTime);
+            canvasGroup.interactable = true;
+            canvasGroup.blocksRaycasts = true;
+
+            organCanvasGroup.alpha = canvasGroup.alpha;
+            organCanvasGroup.interactable = true;
+            organCanvasGroup.blocksRaycasts = true;
+        }
+        else
+        {
+            canvasGroup.alpha = Mathf.MoveTowards(canvasGroup.alpha, 0f, Time.deltaTime);
+            canvasGroup.interactable = false;
+            canvasGroup.blocksRaycasts = false;
+
+            organCanvasGroup.alpha = canvasGroup.alpha;
+            organCanvasGroup.interactable = false;
+            organCanvasGroup.blocksRaycasts = false;
+        }
+    }
+
     private void UpdateAudio()
     {
+        if (Active == false || canvasGroup.alpha < .95f) return;
         if (clip == null) return;
         if (clip2 == null && clipPlayMode == AudioPlayMode.OnKeyStateChanged2Clip) return;
         if (audioSource == null) return;
@@ -142,6 +196,8 @@ public class KeyDisplay : MonoBehaviour
 
     private void UpdateUI()
     {
+        if (Active == false || canvasGroup.alpha < .95f) return;
+
         keyText.text = KeyName;
 
         if (IsDown) keyStateImage.sprite = downArrow;
@@ -159,6 +215,8 @@ public class KeyDisplay : MonoBehaviour
     private bool inKeyPressTime;
     private void UpdateHealth()
     {
+        if (Active == false || canvasGroup.alpha < .95f) return;
+
         if (InputStyle == InputStyle.UpDown)
         {
             if (IsDown != ShouldBeDown)

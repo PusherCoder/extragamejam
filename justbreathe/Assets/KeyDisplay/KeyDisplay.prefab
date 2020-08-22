@@ -517,6 +517,7 @@ GameObject:
   - component: {fileID: 7432795559447334512}
   - component: {fileID: 7432795559447334514}
   - component: {fileID: 7432795559447334515}
+  - component: {fileID: 5398226694526256054}
   m_Layer: 5
   m_Name: KeyDisplay
   m_TagString: Untagged
@@ -589,6 +590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f1f6ce616c2f3b4b805deada3de991b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Active: 0
   keyText: {fileID: 7432795558395444270}
   keyStateImage: {fileID: 6483291910641623270}
   keyTargetStateImage: {fileID: 7955316398115789705}
@@ -598,14 +600,30 @@ MonoBehaviour:
   downArrow: {fileID: 21300000, guid: c8c70a876a986d24ea7f1b3b300acb0d, type: 3}
   correctColor: {r: 1, g: 1, b: 1, a: 1}
   incorrectColor: {r: 0.7830189, g: 0.22530258, b: 0.22530258, a: 1}
-  Key: F
+  clip: {fileID: 0}
+  clip2: {fileID: 0}
+  clipPlayMode: 0
+  volume: 0.5
+  InputStyle: 0
+  KeyName: 
   FillAmount: 1
   TimeUp: 0
   TimeDown: 0
-  IsImpulse: 0
   IsDown: 0
   ShouldBeDown: 0
-  KeyCode: 0
+  Key: 0
+--- !u!225 &5398226694526256054
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7432795559447334513}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &7432795559539343323
 GameObject:
   m_ObjectHideFlags: 0

@@ -251,6 +251,7 @@ GameObject:
   - component: {fileID: 335228990}
   - component: {fileID: 335228992}
   - component: {fileID: 335228991}
+  - component: {fileID: 335228993}
   m_Layer: 5
   m_Name: Heart
   m_TagString: Untagged
@@ -315,6 +316,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 335228989}
   m_CullTransparentMesh: 0
+--- !u!225 &335228993
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335228989}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &467657596
 GameObject:
   m_ObjectHideFlags: 0
@@ -966,6 +979,21 @@ PrefabInstance:
       propertyPath: clip
       value: 
       objectReference: {fileID: 8300000, guid: 369717124cc7a6c489cc99b7285d116e, type: 3}
+    - target: {fileID: 7432795559447334515, guid: 2e93b0f08a2fdc745a30dd9d2559cd8b,
+        type: 3}
+      propertyPath: clipPlayMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7432795559447334515, guid: 2e93b0f08a2fdc745a30dd9d2559cd8b,
+        type: 3}
+      propertyPath: Active
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7432795559447334515, guid: 2e93b0f08a2fdc745a30dd9d2559cd8b,
+        type: 3}
+      propertyPath: organCanvasGroup
+      value: 
+      objectReference: {fileID: 335228993}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e93b0f08a2fdc745a30dd9d2559cd8b, type: 3}
 --- !u!224 &1007157023 stripped
@@ -1116,6 +1144,7 @@ GameObject:
   - component: {fileID: 1572856900}
   - component: {fileID: 1572856902}
   - component: {fileID: 1572856901}
+  - component: {fileID: 1572856903}
   m_Layer: 5
   m_Name: Lungs
   m_TagString: Untagged
@@ -1180,6 +1209,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1572856899}
   m_CullTransparentMesh: 0
+--- !u!225 &1572856903
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572856899}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1001 &1896110261
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1492,5 +1533,10 @@ PrefabInstance:
       propertyPath: clipPlayMode
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7432795559447334515, guid: 2e93b0f08a2fdc745a30dd9d2559cd8b,
+        type: 3}
+      propertyPath: organCanvasGroup
+      value: 
+      objectReference: {fileID: 1572856903}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e93b0f08a2fdc745a30dd9d2559cd8b, type: 3}
