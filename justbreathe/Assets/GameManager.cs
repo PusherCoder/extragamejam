@@ -20,42 +20,11 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EKey = KeyDisplayContainer.CreateKeyDisplay("E");
-        FKey = KeyDisplayContainer.CreateKeyDisplay("F");
+        EKey = KeyDisplayContainer.CreateKeyDisplay("E", 1.0f, 1.0f, false);
+        FKey = KeyDisplayContainer.CreateKeyDisplay("F", 2.0f, 2.0f, false);
 
-        StartCoroutine(EKeyTimer_Co());
-        StartCoroutine(FKeyTimer_Co());
-
-        ETimeDown = ETimeInit;
-        ETimeUp = ETimeInit;
-        FTimeDown = FTimeInit;
-        FTimeUp = FTimeInit;
         HealthCheck = HealthTimeInit;
     }
-
-    private bool eShouldBeDown;
-    private bool fShouldBeDown;
-
-    private IEnumerator EKeyTimer_Co()
-    {
-        eShouldBeDown = false;
-        while (true)
-        {
-            yield return new WaitForSeconds(ETimeInit);
-            eShouldBeDown = !eShouldBeDown;
-        }
-    }
-
-    private IEnumerator FKeyTimer_Co()
-    {
-        fShouldBeDown = false;
-        while (true)
-        {
-            yield return new WaitForSeconds(FTimeInit);
-            fShouldBeDown = !fShouldBeDown;
-        }
-    }
-
 
     // Update is called once per frame
     void Update()
@@ -63,13 +32,13 @@ public class GameManager : MonoBehaviour
         if( Input.GetKey(KeyCode.E) ) EKey.KeyState = "Down";
         else EKey.KeyState = "Up";
 
-        if (Input.GetKey(KeyCode.F))  FKey.KeyState = "Down";
+        if(Input.GetKey(KeyCode.F))  FKey.KeyState = "Down";
         else FKey.KeyState = "Up";
 
-        if(eShouldBeDown) EKey.TargetState = "Down";
+        if(EKey.ShouldBeDown) EKey.TargetState = "Down";
         else EKey.TargetState = "Up";
 
-        if ( fShouldBeDown )  FKey.TargetState = "Down";
+        if(FKey.ShouldBeDown)  FKey.TargetState = "Down";
         else FKey.TargetState = "Up";
 
 
@@ -83,29 +52,5 @@ public class GameManager : MonoBehaviour
             FKey.FillAmount -= Time.deltaTime * HealthFillDown;
         else
             FKey.FillAmount += Time.deltaTime * HealthFillUp;
-
-
-        /*HealthCheck -= Time.deltaTime;
-        if( HealthCheck < 0 )
-        {
-            if( EKey.KeyState != EKey.TargetState )
-            {
-                EKey.FillAmount -= HealthFillDown;
-            }
-            else
-            {
-                EKey.FillAmount += HealthFillUp;
-            }
-
-            if (FKey.KeyState != FKey.TargetState)
-            {
-                FKey.FillAmount -= HealthFillDown;
-            }
-            else
-            {
-                FKey.FillAmount += HealthFillUp;
-            }
-            HealthCheck = HealthTimeInit;
-        }*/
     }
 }

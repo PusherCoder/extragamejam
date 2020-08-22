@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using TMPro;
 
 public class KeyDisplay : MonoBehaviour
@@ -15,6 +16,26 @@ public class KeyDisplay : MonoBehaviour
     public string KeyState;
     public string TargetState;
     public float FillAmount;
+    public float TimeUp;
+    public float TimeDown;
+    public bool IsImpulse;
+    public bool ShouldBeDown;
+
+    private void Awake()
+    {
+        StartCoroutine(KeyTimer_Co());
+    }
+
+    private IEnumerator KeyTimer_Co()
+    {
+        ShouldBeDown = false;
+        while (true)
+        {
+            if (ShouldBeDown) yield return new WaitForSeconds(TimeDown);
+            else yield return new WaitForSeconds(TimeUp);
+            ShouldBeDown = !ShouldBeDown;
+        }
+    }
 
     private void Update()
     {
