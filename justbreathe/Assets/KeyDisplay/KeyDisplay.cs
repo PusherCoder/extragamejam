@@ -4,12 +4,15 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class KeyDisplay : MonoBehaviour
 {
     private const float HealthFillDown = .4f;
     private const float HealthFillUp = .2f;
     private const int ImpulseKeyForgiveness = 7;
+
+    public UnityEvent OnFail = new UnityEvent();
 
     public bool Active;
 
@@ -258,6 +261,8 @@ public class KeyDisplay : MonoBehaviour
                 }
             }
         }
+
+        if (FillAmount <= 0f) OnFail.Invoke();
     }
 
     public void SetInitalValues(string keyName, float timeUp, float timeDown, InputStyle inputStyle, KeyCode key)
