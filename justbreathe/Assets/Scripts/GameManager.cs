@@ -9,21 +9,6 @@ public class GameManager : MonoBehaviour
     public static bool HaveFailedScenario = false;
     public static int Level = 1;
 
-    private struct RhythmAdjustment
-    {
-        public KeyDisplay Key;
-        public float TimeUp;
-        public float TimeDown;
-    }
-
-    private struct GameScriptController
-    {
-        public float ScenarioTime;
-        public string Subtitle;
-        public AudioClip VOClip;
-        public RhythmAdjustment[] Adjustment;
-    }
-
     [Header("General Game Elements")]
     [SerializeField] private KeyDisplay BreathKey;
     [SerializeField] private KeyDisplay HeartKey;
@@ -34,17 +19,25 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioLowPassFilter lowPass;
 
     [Header("Scenario 1 Audio")]
-    [SerializeField] private AudioClip VO1Cereal;
-    [SerializeField] private AudioClip VO1Sugar;
-    [SerializeField] private AudioClip VO1Power;
-    [SerializeField] private AudioClip VO1Forgotten;
-    [SerializeField] private AudioClip VO1Saturday;
-    [SerializeField] private AudioClip VO1Drink;
-    [SerializeField] private AudioClip VO1Papers;
-    [SerializeField] private float volume = .5f;
+    public AudioClip VO1Monday;
+    public AudioClip VO1Ceiling;
+    public AudioClip VO1Keyboard;
+    public AudioClip VO1Faster;
+    public AudioClip VO1Slower;
+    public AudioClip VO1Focus;
+    public AudioClip VO1Heartbeat;
+
+    [Header("Scenario 2 Audio")]
+    public AudioClip VO2Cereal;
+    public AudioClip VO2Sugar;
+    public AudioClip VO2Power;
+    public AudioClip VO2Forgotten;
+    public AudioClip VO2Saturday;
+    public AudioClip VO2Drink;
+    public AudioClip VO2Papers;
     private AudioSource ScenarioAudio;
 
-    private GameScriptController[] Scenario1;
+    private GameScriptController[] ScenarioGameScript;
     private float ScenarioTime;
     private int ScenarioPosition;
     private bool fadeInDeathScreen = false;
@@ -56,40 +49,27 @@ public class GameManager : MonoBehaviour
         BreathKey.OnFail.AddListener(Asphyxiate);
         HeartKey.OnFail.AddListener(HeartAttack);
 
-        ScenarioTime = 0.0f;
-        ScenarioPosition = 0;
+        ScenarioTime = 0f;
+        ScenarioPosition = -1;
         ScenarioAudio = gameObject.AddComponent<AudioSource>();
         ScenarioAudio.playOnAwake = false;
 
-        Scenario1 = new GameScriptController[]
-        {
-            new GameScriptController{ ScenarioTime = 0.0f,    Subtitle = "", VOClip = null,
-                                      Adjustment = null },
-            new GameScriptController{ ScenarioTime = 2.0f,    Subtitle = "Looks like cereal again.", VOClip = VO1Cereal,
-                                      Adjustment = null },
-            new GameScriptController{ ScenarioTime = 10.0f,   Subtitle = "*crunching sounds*", VOClip = null,
-                                      Adjustment = null },
-            new GameScriptController{ ScenarioTime = 18.0f,   Subtitle = "I wonder if all this sugar is good for me?", VOClip = VO1Sugar,
-                                      Adjustment = new RhythmAdjustment[]{ new RhythmAdjustment{ Key = HeartKey, TimeDown = 0.9f, TimeUp = 1.0f } } },
-            new GameScriptController{ ScenarioTime = 25.0f,   Subtitle = "*crunching sounds*", VOClip = null,
-                                      Adjustment = new RhythmAdjustment[]{ new RhythmAdjustment{ Key = HeartKey, TimeDown = 0.8f, TimeUp = 1.0f } } },
-            new GameScriptController{ ScenarioTime = 35.0f,   Subtitle = "*drinking sounds*", VOClip = VO1Drink,
-                                      Adjustment = new RhythmAdjustment[]{ new RhythmAdjustment{ Key = HeartKey, TimeDown = 1.0f, TimeUp = 1.0f } } },
-            new GameScriptController{ ScenarioTime = 45.0f,   Subtitle = "Wait, did I forget to pay the power bill again?", VOClip = VO1Power,
-                                      Adjustment = new RhythmAdjustment[]{ new RhythmAdjustment{ Key = BreathKey, TimeDown = 1.5f, TimeUp = 1.5f } } },
-            new GameScriptController{ ScenarioTime = 50.0f,   Subtitle = "*papers shuffling*", VOClip = VO1Papers,
-                                      Adjustment = new RhythmAdjustment[]{ new RhythmAdjustment{ Key = BreathKey, TimeDown = 1.0f, TimeUp = 1.0f } } },
-            new GameScriptController{ ScenarioTime = 60.0f,   Subtitle = "*Whew* I must have forgotten that I paid it early.", VOClip = VO1Forgotten,
-                                      Adjustment = new RhythmAdjustment[]{ new RhythmAdjustment{ Key = BreathKey, TimeDown = 1.8f, TimeUp = 1.8f } } },
-            new GameScriptController{ ScenarioTime = 70.0f,   Subtitle = "I wish today was Saturday.", VOClip = VO1Saturday,
-                                      Adjustment = new RhythmAdjustment[]{ new RhythmAdjustment{ Key = BreathKey, TimeDown = 2.0f, TimeUp = 2.0f } } },
-            new GameScriptController{ ScenarioTime = 80.0f,   Subtitle = "*crunching sounds*", VOClip = null,
-                                      Adjustment = null }
-        };
+        if (Level == 1) LoadLevel1();
+        else if (Level == 2) LoadLevel2();
 
         deathScreenCanvasGroup.alpha = 0;
         lowPass.cutoffFrequency = 22000;
         HaveFailedScenario = false;
+    }
+
+    private void LoadLevel1()
+    {
+        ScenarioGameScript = Scenarios.GetLevel1Script(this, HeartKey);
+    }
+
+    private void LoadLevel2()
+    {
+        ScenarioGameScript = Scenarios.GetLevel2Script(this, HeartKey, BreathKey);
     }
     
     private void Asphyxiate()
@@ -114,26 +94,30 @@ public class GameManager : MonoBehaviour
     {
         FadeInDeathScreen();
         
-        ScenarioTime += Time.deltaTime;
-        if( ScenarioTime > Scenario1[ScenarioPosition].ScenarioTime )
+        if(ScenarioPosition == -1 || ScenarioTime > ScenarioGameScript[ScenarioPosition].ScenarioTime )
         {
             ScenarioPosition++;
-            Subtitles.text = Scenario1[ScenarioPosition].Subtitle;
-            if( Scenario1[ScenarioPosition].VOClip != null )
+            Subtitles.text = ScenarioGameScript[ScenarioPosition].Subtitle;
+            if( ScenarioGameScript[ScenarioPosition].VOClip != null )
             {
-                ScenarioAudio.clip = Scenario1[ScenarioPosition].VOClip;
+                ScenarioAudio.clip = ScenarioGameScript[ScenarioPosition].VOClip;
+                ScenarioAudio.volume = ScenarioGameScript[ScenarioPosition].Volume;
                 ScenarioAudio.Play();
             }
 
-            if (Scenario1[ScenarioPosition].Adjustment != null)
+            if (ScenarioGameScript[ScenarioPosition].HeartEnabled) HeartKey.Active = true;
+            if (ScenarioGameScript[ScenarioPosition].LungsEnabled) BreathKey.Active = true;
+
+            if (ScenarioGameScript[ScenarioPosition].Adjustment != null)
             {
-                for (int i = 0; i < Scenario1[ScenarioPosition].Adjustment.Length; i++)
+                for (int i = 0; i < ScenarioGameScript[ScenarioPosition].Adjustment.Length; i++)
                 {
-                    Scenario1[ScenarioPosition].Adjustment[i].Key.TimeDown = Scenario1[ScenarioPosition].Adjustment[i].TimeDown;
-                    Scenario1[ScenarioPosition].Adjustment[i].Key.TimeUp = Scenario1[ScenarioPosition].Adjustment[i].TimeUp;
+                    ScenarioGameScript[ScenarioPosition].Adjustment[i].Key.TimeDown = ScenarioGameScript[ScenarioPosition].Adjustment[i].TimeDown;
+                    ScenarioGameScript[ScenarioPosition].Adjustment[i].Key.TimeUp = ScenarioGameScript[ScenarioPosition].Adjustment[i].TimeUp;
                 }
             }
         }
+        ScenarioTime += Time.deltaTime;
     }
 
     private float restartAmount;

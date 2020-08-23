@@ -1,5 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿#pragma warning disable 0649
+
+using System.Collections;
 using UnityEngine;
 
 public class BreathInBreathOutSFX : MonoBehaviour

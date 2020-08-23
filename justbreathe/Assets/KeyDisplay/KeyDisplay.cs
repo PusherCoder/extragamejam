@@ -210,7 +210,11 @@ public class KeyDisplay : MonoBehaviour
 
     private void UpdateUI()
     {
+        FillAmount = Mathf.Clamp01(FillAmount);
+        fillTransform.sizeDelta = new Vector2(maxFillWidth * FillAmount, fillTransform.sizeDelta.y);
+
         if (Active == false || canvasGroup.alpha < .95f) return;
+
         timeSinceStartup += Time.deltaTime;
         if (timeSinceStartup < DontTakeInputTime) return;
 
@@ -220,17 +224,17 @@ public class KeyDisplay : MonoBehaviour
         if (ShouldBeDown) keyTargetStateImage.sprite = downArrow;
         else keyTargetStateImage.sprite = upArrow;
 
-        FillAmount = Mathf.Clamp01(FillAmount);
-        fillTransform.sizeDelta = new Vector2(maxFillWidth * FillAmount, fillTransform.sizeDelta.y);
-
         IsDown = Input.GetKey(Key);
     }
 
     private bool inKeyPressTime;
     private void UpdateHealth()
     {
-        if (Active == false || canvasGroup.alpha < .95f) return;
-        if (timeSinceStartup < DontTakeInputTime) return;
+        if (Active == false || canvasGroup.alpha < .95f || timeSinceStartup < DontTakeInputTime)
+        {
+            FillAmount = 1f;
+            return;
+        }
 
         if (InputStyle == InputStyle.UpDown)
         {
