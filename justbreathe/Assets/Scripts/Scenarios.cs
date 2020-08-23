@@ -293,14 +293,14 @@ public class Scenarios
 
             new GameScriptController
             {
-                ScenarioTime = 100.0f,
+                ScenarioTime = 10.0f,
                 Subtitle = "",
                 VOClip = null
             },
 
             new GameScriptController
             {
-                ScenarioTime = 101.0f,
+                ScenarioTime = 11.0f,
                 Subtitle = "",
                 VOClip = null
             },

@@ -72,11 +72,17 @@ public class GameManager : MonoBehaviour
         if (Level == 1) LoadLevel1();
         else if (Level == 2) LoadLevel2();
         else if (Level == 3) LoadLevel3();
+        else ThanksForPlaying();
 
         deathScreenCanvasGroup.alpha = 0;
         lowPass.cutoffFrequency = 22000;
         HaveFailedScenario = false;
         HaveBeatScenario = false;
+    }
+
+    private void ThanksForPlaying()
+    {
+        SceneManager.LoadScene("ThanksForPlaying");
     }
 
     private void LoadLevel1()
