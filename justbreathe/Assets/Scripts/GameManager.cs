@@ -17,8 +17,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Text deathScreenText;
     [SerializeField] private Image holdSpaceImage;
     [SerializeField] private AudioLowPassFilter lowPass;
+    [SerializeField] private UnityEngine.UI.Image ManMan;
+    [SerializeField] private UnityEngine.UI.Image Background;
 
-    [Header("Scenario 1 Audio")]
+    [Header("Scenario 1 Data")]
     public AudioClip VO1Monday;
     public AudioClip VO1Ceiling;
     public AudioClip VO1Keyboard;
@@ -26,8 +28,10 @@ public class GameManager : MonoBehaviour
     public AudioClip VO1Slower;
     public AudioClip VO1Focus;
     public AudioClip VO1Heartbeat;
+    public Sprite ManMan1;
+    public Sprite Background1;
 
-    [Header("Scenario 2 Audio")]
+    [Header("Scenario 2 Data")]
     public AudioClip VO2Cereal;
     public AudioClip VO2Sugar;
     public AudioClip VO2Power;
@@ -35,11 +39,13 @@ public class GameManager : MonoBehaviour
     public AudioClip VO2Saturday;
     public AudioClip VO2Drink;
     public AudioClip VO2Papers;
-    private AudioSource ScenarioAudio;
+    public Sprite ManMan2;
+    public Sprite Background2;
 
     private GameScriptController[] ScenarioGameScript;
     private float ScenarioTime;
     private int ScenarioPosition;
+    private AudioSource ScenarioAudio;
     private bool fadeInDeathScreen = false;
 
     private void Start()
@@ -65,11 +71,15 @@ public class GameManager : MonoBehaviour
     private void LoadLevel1()
     {
         ScenarioGameScript = Scenarios.GetLevel1Script(this, HeartKey);
+        Background.sprite = Background1;
+        ManMan.sprite = ManMan1;
     }
 
     private void LoadLevel2()
     {
         ScenarioGameScript = Scenarios.GetLevel2Script(this, HeartKey, BreathKey);
+        Background.sprite = Background2;
+        ManMan.sprite = ManMan2;
     }
     
     private void Asphyxiate()

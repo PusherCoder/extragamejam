@@ -1537,6 +1537,8 @@ MonoBehaviour:
   deathScreenText: {fileID: 1594804517}
   holdSpaceImage: {fileID: 1182313341}
   lowPass: {fileID: 467657600}
+  ManMan: {fileID: 821330941}
+  Background: {fileID: 688319979}
   VO1Monday: {fileID: 8300000, guid: e4d394b8e5245bf4e9dae4e6e4729d98, type: 3}
   VO1Ceiling: {fileID: 8300000, guid: 7873753b05132934ca11ed43b501e5a6, type: 3}
   VO1Keyboard: {fileID: 8300000, guid: acef1c22b31cf904487e310dafa4aeb2, type: 3}
@@ -1544,6 +1546,8 @@ MonoBehaviour:
   VO1Slower: {fileID: 8300000, guid: 46f4a352ea6c8004e97e0cd66009a819, type: 3}
   VO1Focus: {fileID: 8300000, guid: 048335dd38ac7e4448b0cf4fdea8ca08, type: 3}
   VO1Heartbeat: {fileID: 8300000, guid: 369717124cc7a6c489cc99b7285d116e, type: 3}
+  ManMan1: {fileID: 21300000, guid: 502565590ba93d1448d179b626612e46, type: 3}
+  Background1: {fileID: 21300000, guid: 227c8d4128063ab48b5067ccc6aa2631, type: 3}
   VO2Cereal: {fileID: 8300000, guid: 6a670b1514c239241a6b9346d79b9d6d, type: 3}
   VO2Sugar: {fileID: 8300000, guid: 5ea24ed31dafe3e42a49fcc5bce48d51, type: 3}
   VO2Power: {fileID: 8300000, guid: 8956c27646e3075458fb1ca8f8e143d0, type: 3}
@@ -1551,6 +1555,8 @@ MonoBehaviour:
   VO2Saturday: {fileID: 8300000, guid: c86c868e145c46247bde85746647364c, type: 3}
   VO2Drink: {fileID: 8300000, guid: 242d22b77ddf0ca41ae16cd2c879e41f, type: 3}
   VO2Papers: {fileID: 8300000, guid: 36da8654f82be924087900ccf65cbbe2, type: 3}
+  ManMan2: {fileID: 21300000, guid: 2a9b7e7befac0ef46acd31491d3a67f7, type: 3}
+  Background2: {fileID: 21300000, guid: 1c6e45ac7c593244ca11bc305a9aa57d, type: 3}
 --- !u!4 &1526096061
 Transform:
   m_ObjectHideFlags: 0
