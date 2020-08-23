@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static bool HaveFailedScenario = false;
-    public static int Level = 2;
+    public static bool HaveBeatScenario = false;
+    public static int Level = 1;
 
     [Header("General Game Elements")]
     [SerializeField] private KeyDisplay BreathKey;
@@ -41,6 +42,7 @@ public class GameManager : MonoBehaviour
     private float ScenarioTime;
     private int ScenarioPosition;
     private bool fadeInDeathScreen = false;
+    private bool fadeInVictoryScreen = false;
 
     private void Start()
     {
@@ -60,6 +62,7 @@ public class GameManager : MonoBehaviour
         deathScreenCanvasGroup.alpha = 0;
         lowPass.cutoffFrequency = 22000;
         HaveFailedScenario = false;
+        HaveBeatScenario = false;
     }
 
     private void LoadLevel1()
@@ -93,10 +96,21 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         FadeInDeathScreen();
-        
-        if(ScenarioPosition == -1 || ScenarioTime > ScenarioGameScript[ScenarioPosition].ScenarioTime )
+        FadeInVictoryScreen();
+
+        if (fadeInDeathScreen || fadeInVictoryScreen) return;
+
+        if(ScenarioPosition == -1 || ScenarioTime > ScenarioGameScript[ScenarioPosition].ScenarioTime)
         {
             ScenarioPosition++;
+
+            if (ScenarioPosition >= ScenarioGameScript.Length)
+            {
+                fadeInVictoryScreen = true;
+                HaveBeatScenario = true;
+                return;
+            }
+
             Subtitles.text = ScenarioGameScript[ScenarioPosition].Subtitle;
             if( ScenarioGameScript[ScenarioPosition].VOClip != null )
             {
@@ -138,6 +152,34 @@ public class GameManager : MonoBehaviour
 
         if (restartAmount >= 1f)
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        restartAmount = Mathf.Clamp01(restartAmount);
+
+        lowPass.cutoffFrequency = Mathf.Lerp(lowPass.cutoffFrequency, 500, Time.deltaTime);
+    }
+
+    private void FadeInVictoryScreen()
+    {
+        if (fadeInVictoryScreen == false) return;
+
+        deathScreenText.text = "scene finished \nhold space to retry";
+
+        deathScreenCanvasGroup.alpha += Time.deltaTime;
+        deathScreenCanvasGroup.alpha = Mathf.Clamp01(deathScreenCanvasGroup.alpha);
+        Blur.SetBlurAmount(deathScreenCanvasGroup.alpha * 25f);
+
+        if (Input.GetKey(KeyCode.Space))
+            restartAmount += Time.deltaTime * 2f;
+        else
+            restartAmount -= Time.deltaTime;
+
+        holdSpaceImage.fillAmount = restartAmount;
+
+        if (restartAmount >= 1f)
+        {
+            Level++;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
 
         restartAmount = Mathf.Clamp01(restartAmount);
 
