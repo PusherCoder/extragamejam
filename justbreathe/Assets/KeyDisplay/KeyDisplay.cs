@@ -11,6 +11,7 @@ public class KeyDisplay : MonoBehaviour
     private const float HealthFillDown = .4f;
     private const float HealthFillUp = .2f;
     private const int ImpulseKeyForgiveness = 7;
+    private const float DontTakeInputTime = .5f;
 
     public UnityEvent OnFail = new UnityEvent();
 
@@ -68,6 +69,8 @@ public class KeyDisplay : MonoBehaviour
         audioSource.volume = volume;
         audioSource.playOnAwake = false;
 
+        FillAmount = 1f;
+
         canvasGroup = GetComponent<CanvasGroup>();
         if (Active)
         {
@@ -92,6 +95,12 @@ public class KeyDisplay : MonoBehaviour
 
         StartCoroutine(KeyTimer_Co());
         StartCoroutine(BufferedInput_Co());
+    }
+
+    private float timeSinceStartup;
+    private void Start()
+    {
+        timeSinceStartup = 0;
     }
 
     private IEnumerator KeyTimer_Co()
@@ -142,6 +151,8 @@ public class KeyDisplay : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.HaveFailedScenario) return;
+
         CheckActive();
         UpdateUI();
         UpdateHealth();
@@ -200,6 +211,8 @@ public class KeyDisplay : MonoBehaviour
     private void UpdateUI()
     {
         if (Active == false || canvasGroup.alpha < .95f) return;
+        timeSinceStartup += Time.deltaTime;
+        if (timeSinceStartup < DontTakeInputTime) return;
 
         if (IsDown) keyStateImage.sprite = downArrow;
         else keyStateImage.sprite = upArrow;
@@ -217,6 +230,7 @@ public class KeyDisplay : MonoBehaviour
     private void UpdateHealth()
     {
         if (Active == false || canvasGroup.alpha < .95f) return;
+        if (timeSinceStartup < DontTakeInputTime) return;
 
         if (InputStyle == InputStyle.UpDown)
         {

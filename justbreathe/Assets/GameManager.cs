@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public static bool HaveFailedScenario = false;
+
     private struct RhythmAdjustment
     {
         public KeyDisplay Key;
@@ -28,6 +30,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private CanvasGroup deathScreenCanvasGroup;
     [SerializeField] private Text deathScreenText;
     [SerializeField] private Image holdSpaceImage;
+    [SerializeField] private AudioLowPassFilter lowPass;
 
     [Header("Scenario 1 Audio")]
     [SerializeField] private AudioClip VO1Cereal;
@@ -82,6 +85,8 @@ public class GameManager : MonoBehaviour
         };
 
         deathScreenCanvasGroup.alpha = 0;
+        lowPass.cutoffFrequency = 22000;
+        HaveFailedScenario = false;
     }
     
     private void Asphyxiate()
@@ -90,6 +95,7 @@ public class GameManager : MonoBehaviour
 
         deathScreenText.text = "you asphyxiated :'(\nhold space to retry";
         fadeInDeathScreen = true;
+        HaveFailedScenario = true;
     }
 
     private void HeartAttack()
@@ -98,6 +104,7 @@ public class GameManager : MonoBehaviour
 
         deathScreenText.text = "you died of a heart attack\nhold space to retry";
         fadeInDeathScreen = true;
+        HaveFailedScenario = true;
     }
 
     private void Update()
@@ -114,10 +121,14 @@ public class GameManager : MonoBehaviour
                 ScenarioAudio.clip = Scenario1[ScenarioPosition].VOClip;
                 ScenarioAudio.Play();
             }
-            for ( int i = 0; i < Scenario1[ScenarioPosition].Adjustment.Length; i++ )
+
+            if (Scenario1[ScenarioPosition].Adjustment != null)
             {
-                Scenario1[ScenarioPosition].Adjustment[i].Key.TimeDown = Scenario1[ScenarioPosition].Adjustment[i].TimeDown;
-                Scenario1[ScenarioPosition].Adjustment[i].Key.TimeUp = Scenario1[ScenarioPosition].Adjustment[i].TimeUp;
+                for (int i = 0; i < Scenario1[ScenarioPosition].Adjustment.Length; i++)
+                {
+                    Scenario1[ScenarioPosition].Adjustment[i].Key.TimeDown = Scenario1[ScenarioPosition].Adjustment[i].TimeDown;
+                    Scenario1[ScenarioPosition].Adjustment[i].Key.TimeUp = Scenario1[ScenarioPosition].Adjustment[i].TimeUp;
+                }
             }
         }
     }
@@ -142,5 +153,7 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
         restartAmount = Mathf.Clamp01(restartAmount);
+
+        lowPass.cutoffFrequency = Mathf.Lerp(lowPass.cutoffFrequency, 500, Time.deltaTime);
     }
 }
