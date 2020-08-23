@@ -8,11 +8,12 @@ public class GameManager : MonoBehaviour
 {
     public static bool HaveFailedScenario = false;
     public static bool HaveBeatScenario = false;
-    public static int Level = 1;
+    public static int Level = 3;
 
     [Header("General Game Elements")]
     [SerializeField] private KeyDisplay BreathKey;
     [SerializeField] private KeyDisplay HeartKey;
+    [SerializeField] private KeyDisplay EyeKey;
     [SerializeField] private UnityEngine.UI.Text Subtitles;
     [SerializeField] private CanvasGroup deathScreenCanvasGroup;
     [SerializeField] private Text deathScreenText;
@@ -43,6 +44,10 @@ public class GameManager : MonoBehaviour
     public Sprite ManMan2;
     public Sprite Background2;
 
+    [Header("Scenario 3 Data")]
+    public Sprite ManMan3;
+    public Sprite Background3;
+
     private GameScriptController[] ScenarioGameScript;
     private float ScenarioTime;
     private int ScenarioPosition;
@@ -54,6 +59,8 @@ public class GameManager : MonoBehaviour
     {
         BreathKey.SetInitalValues("F", 2.0f, 2.0f, InputStyle.UpDown, KeyCode.F);
         HeartKey.SetInitalValues("_", 1.0f, 1.0f, InputStyle.Impulse, KeyCode.Space);
+        EyeKey.SetInitalValues("J", 5.0f, 5.0f, InputStyle.Impulse, KeyCode.J);
+        EyeKey.HealthFillUp = .05f;
         BreathKey.OnFail.AddListener(Asphyxiate);
         HeartKey.OnFail.AddListener(HeartAttack);
 
@@ -64,6 +71,7 @@ public class GameManager : MonoBehaviour
 
         if (Level == 1) LoadLevel1();
         else if (Level == 2) LoadLevel2();
+        else if (Level == 3) LoadLevel3();
 
         deathScreenCanvasGroup.alpha = 0;
         lowPass.cutoffFrequency = 22000;
@@ -83,6 +91,13 @@ public class GameManager : MonoBehaviour
         ScenarioGameScript = Scenarios.GetLevel2Script(this, HeartKey, BreathKey);
         Background.sprite = Background2;
         ManMan.sprite = ManMan2;
+    }
+
+    private void LoadLevel3()
+    {
+        ScenarioGameScript = Scenarios.GetLevel3Script(this, HeartKey, BreathKey, EyeKey);
+        Background.sprite = Background3;
+        ManMan.sprite = ManMan3;
     }
     
     private void Asphyxiate()
@@ -107,6 +122,7 @@ public class GameManager : MonoBehaviour
     {
         FadeInDeathScreen();
         FadeInVictoryScreen();
+        EyeBlurriness();
 
         if (fadeInDeathScreen || fadeInVictoryScreen) return;
 
@@ -131,6 +147,7 @@ public class GameManager : MonoBehaviour
 
             if (ScenarioGameScript[ScenarioPosition].HeartEnabled) HeartKey.Active = true;
             if (ScenarioGameScript[ScenarioPosition].LungsEnabled) BreathKey.Active = true;
+            if (ScenarioGameScript[ScenarioPosition].EyesEnabled) EyeKey.Active = true;
 
             if (ScenarioGameScript[ScenarioPosition].Adjustment != null)
             {
@@ -142,6 +159,15 @@ public class GameManager : MonoBehaviour
             }
         }
         ScenarioTime += Time.deltaTime;
+    }
+
+    private void EyeBlurriness()
+    {
+        if (EyeKey.Active == false) return;
+        if (HaveBeatScenario || HaveFailedScenario) return;
+
+        float blurAmount = Mathf.Lerp(25f, 0f, EyeKey.FillAmount);
+        Blur.SetBlurAmount(blurAmount);
     }
 
     private float restartAmount;
@@ -172,7 +198,7 @@ public class GameManager : MonoBehaviour
     {
         if (fadeInVictoryScreen == false) return;
 
-        deathScreenText.text = "scene finished \nhold space to retry";
+        deathScreenText.text = "scene finished \nhold space to continue";
 
         deathScreenCanvasGroup.alpha += Time.deltaTime;
         deathScreenCanvasGroup.alpha = Mathf.Clamp01(deathScreenCanvasGroup.alpha);

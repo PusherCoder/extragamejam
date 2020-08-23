@@ -8,8 +8,6 @@ using UnityEngine.Events;
 
 public class KeyDisplay : MonoBehaviour
 {
-    private const float HealthFillDown = .4f;
-    private const float HealthFillUp = .2f;
     private const int ImpulseKeyForgiveness = 5;
     private const float DontTakeInputTime = .5f;
 
@@ -50,6 +48,8 @@ public class KeyDisplay : MonoBehaviour
     private bool wasDown;
     public bool ShouldBeDown;
     public KeyCode Key;
+    public float HealthFillDown = .4f;
+    public float HealthFillUp = .2f;
 
     private bool nextShouldBeDown;
     private Graph graph;
