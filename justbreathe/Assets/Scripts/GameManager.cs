@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static bool HaveFailedScenario = false;
-    public static int Level = 1;
+    public static int Level = 2;
 
     [Header("General Game Elements")]
     [SerializeField] private KeyDisplay BreathKey;

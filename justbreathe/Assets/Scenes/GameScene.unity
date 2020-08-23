@@ -518,6 +518,7 @@ GameObject:
   - component: {fileID: 582991573}
   - component: {fileID: 582991575}
   - component: {fileID: 582991574}
+  - component: {fileID: 582991576}
   m_Layer: 5
   m_Name: HeartLine
   m_TagString: Untagged
@@ -581,6 +582,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 582991572}
   m_CullTransparentMesh: 0
+--- !u!225 &582991576
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582991572}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &598969688
 GameObject:
   m_ObjectHideFlags: 0
@@ -666,7 +679,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 598969688}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -1280,6 +1293,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 70c68f62c8c7bae43ad7017a73f66371,
         type: 3}
+    - target: {fileID: 7432795559447334515, guid: 2e93b0f08a2fdc745a30dd9d2559cd8b,
+        type: 3}
+      propertyPath: lineCanvasGroup
+      value: 
+      objectReference: {fileID: 582991576}
     - target: {fileID: 7955316398115789705, guid: 2e93b0f08a2fdc745a30dd9d2559cd8b,
         type: 3}
       propertyPath: m_Sprite
@@ -1407,6 +1425,7 @@ GameObject:
   - component: {fileID: 1372644822}
   - component: {fileID: 1372644824}
   - component: {fileID: 1372644823}
+  - component: {fileID: 1372644825}
   m_Layer: 5
   m_Name: LungLine
   m_TagString: Untagged
@@ -1430,8 +1449,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 29.46}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1069.3, y: 665}
-  m_SizeDelta: {x: 222.5, y: 5}
+  m_AnchoredPosition: {x: 1148.9, y: 710.6}
+  m_SizeDelta: {x: 241.4476, y: 5.428673}
   m_Pivot: {x: 4.71, y: 0.9}
 --- !u!114 &1372644823
 MonoBehaviour:
@@ -1470,6 +1489,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1372644821}
   m_CullTransparentMesh: 0
+--- !u!225 &1372644825
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372644821}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1526096059
 GameObject:
   m_ObjectHideFlags: 0
@@ -2123,6 +2154,11 @@ PrefabInstance:
       propertyPath: Active
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7432795559447334515, guid: 2e93b0f08a2fdc745a30dd9d2559cd8b,
+        type: 3}
+      propertyPath: lineCanvasGroup
+      value: 
+      objectReference: {fileID: 1372644825}
     - target: {fileID: 7955316398115789705, guid: 2e93b0f08a2fdc745a30dd9d2559cd8b,
         type: 3}
       propertyPath: m_Sprite

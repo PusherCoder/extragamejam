@@ -10,7 +10,7 @@ public class KeyDisplay : MonoBehaviour
 {
     private const float HealthFillDown = .4f;
     private const float HealthFillUp = .2f;
-    private const int ImpulseKeyForgiveness = 7;
+    private const int ImpulseKeyForgiveness = 6;
     private const float DontTakeInputTime = .5f;
 
     public UnityEvent OnFail = new UnityEvent();
@@ -18,7 +18,6 @@ public class KeyDisplay : MonoBehaviour
     public bool Active;
 
     [Header("UI")]
-    [SerializeField] private TextMeshProUGUI keyText;
     [SerializeField] private Image keyStateImage;
     [SerializeField] private Image keyTargetStateImage;
     [SerializeField] private RectTransform fillTransform;
@@ -30,6 +29,7 @@ public class KeyDisplay : MonoBehaviour
     [SerializeField] private Color incorrectColor;
 
     [SerializeField] private CanvasGroup organCanvasGroup;
+    [SerializeField] private CanvasGroup lineCanvasGroup;
 
     [Header("SFX")]
     [SerializeField] private AudioClip clip;
@@ -55,6 +55,7 @@ public class KeyDisplay : MonoBehaviour
     private Graph graph;
     private bool[] bufferedShouldBeDown;
     private bool[] bufferedShouldBeDownImpulse;
+    private float impulseInvincibility;
 
     private CanvasGroup canvasGroup;
 
@@ -81,6 +82,10 @@ public class KeyDisplay : MonoBehaviour
             organCanvasGroup.alpha = 1;
             organCanvasGroup.interactable = true;
             organCanvasGroup.blocksRaycasts = true;
+
+            lineCanvasGroup.alpha = 1;
+            lineCanvasGroup.interactable = true;
+            lineCanvasGroup.blocksRaycasts = true;
         }
         else
         {
@@ -91,6 +96,10 @@ public class KeyDisplay : MonoBehaviour
             organCanvasGroup.alpha = 0;
             organCanvasGroup.interactable = false;
             organCanvasGroup.blocksRaycasts = false;
+
+            lineCanvasGroup.alpha = 0;
+            lineCanvasGroup.interactable = false;
+            lineCanvasGroup.blocksRaycasts = false;
         }
 
         StartCoroutine(KeyTimer_Co());
@@ -172,6 +181,10 @@ public class KeyDisplay : MonoBehaviour
             organCanvasGroup.alpha = canvasGroup.alpha;
             organCanvasGroup.interactable = true;
             organCanvasGroup.blocksRaycasts = true;
+
+            lineCanvasGroup.alpha = canvasGroup.alpha;
+            lineCanvasGroup.interactable = true;
+            lineCanvasGroup.blocksRaycasts = true;
         }
         else
         {
@@ -182,6 +195,10 @@ public class KeyDisplay : MonoBehaviour
             organCanvasGroup.alpha = canvasGroup.alpha;
             organCanvasGroup.interactable = false;
             organCanvasGroup.blocksRaycasts = false;
+
+            lineCanvasGroup.alpha = canvasGroup.alpha;
+            lineCanvasGroup.interactable = false;
+            lineCanvasGroup.blocksRaycasts = false;
         }
     }
 
@@ -230,6 +247,8 @@ public class KeyDisplay : MonoBehaviour
     private bool inKeyPressTime;
     private void UpdateHealth()
     {
+        impulseInvincibility -= Time.deltaTime;
+
         if (Active == false || canvasGroup.alpha < .95f || timeSinceStartup < DontTakeInputTime)
         {
             FillAmount = 1f;
@@ -262,7 +281,12 @@ public class KeyDisplay : MonoBehaviour
             else if (foundKeyPressRequired == false && inKeyPressTime)
             {
                 inKeyPressTime = false;
-                FillAmount -= HealthFillDown;
+
+                if (impulseInvincibility < 0f)
+                {
+                    FillAmount -= HealthFillDown;
+                    impulseInvincibility = .15f;
+                }
             }
 
             if (Input.GetKeyDown(Key))
@@ -275,7 +299,11 @@ public class KeyDisplay : MonoBehaviour
                 }
                 else
                 {
-                    FillAmount -= HealthFillDown;
+                    if (impulseInvincibility < 0f)
+                    {
+                        FillAmount -= HealthFillDown;
+                        impulseInvincibility = .15f;
+                    }
                 }
             }
         }
