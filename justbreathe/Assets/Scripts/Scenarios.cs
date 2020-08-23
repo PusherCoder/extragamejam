@@ -275,6 +275,37 @@ public class Scenarios
             }
         };
     }
+
+    public static GameScriptController[] GetLevel3Script(GameManager manager, KeyDisplay HeartKey, KeyDisplay BreathKey, KeyDisplay EyeKey)
+    {
+        return new GameScriptController[]
+        {
+            new GameScriptController
+            {
+                ScenarioTime = 0.0f,
+                Subtitle = "",
+                VOClip = null,
+                Adjustment = null ,
+                HeartEnabled = true,
+                LungsEnabled = true,
+                EyesEnabled = true
+            },
+
+            new GameScriptController
+            {
+                ScenarioTime = 100.0f,
+                Subtitle = "",
+                VOClip = null
+            },
+
+            new GameScriptController
+            {
+                ScenarioTime = 101.0f,
+                Subtitle = "",
+                VOClip = null
+            },
+        };
+    }
 }
 
 public struct RhythmAdjustment
@@ -293,4 +324,5 @@ public struct GameScriptController
     public RhythmAdjustment[] Adjustment;
     public bool HeartEnabled;
     public bool LungsEnabled;
+    public bool EyesEnabled;
 }
