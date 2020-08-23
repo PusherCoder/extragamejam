@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
             new GameScriptController{ ScenarioTime = 45.0f,   Subtitle = "Wait, did I forget to pay the power bill again?", VOClip = VO1Power,
                                       Adjustment = new RhythmAdjustment[]{ new RhythmAdjustment{ Key = BreathKey, TimeDown = 1.5f, TimeUp = 1.5f } } },
             new GameScriptController{ ScenarioTime = 50.0f,   Subtitle = "*papers shuffling*", VOClip = null,
-                                      Adjustment = new RhythmAdjustment[]{ new RhythmAdjustment{ Key = BreathKey, TimeDown = 1.2f, TimeUp = 1.5f } } },
+                                      Adjustment = new RhythmAdjustment[]{ new RhythmAdjustment{ Key = BreathKey, TimeDown = 1.0f, TimeUp = 1.0f } } },
             new GameScriptController{ ScenarioTime = 60.0f,   Subtitle = "*Whew* I must have forgotten that I paid it early.", VOClip = VO1Forgotten,
                                       Adjustment = new RhythmAdjustment[]{ new RhythmAdjustment{ Key = BreathKey, TimeDown = 1.8f, TimeUp = 1.8f } } },
             new GameScriptController{ ScenarioTime = 70.0f,   Subtitle = "I wish today was Saturday.", VOClip = VO1Saturday,
