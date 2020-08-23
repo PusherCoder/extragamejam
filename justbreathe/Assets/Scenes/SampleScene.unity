@@ -1511,6 +1511,8 @@ MonoBehaviour:
   VO1Power: {fileID: 8300000, guid: 8956c27646e3075458fb1ca8f8e143d0, type: 3}
   VO1Forgotten: {fileID: 8300000, guid: db41247ca77bac44d89fcf89fa8ab3be, type: 3}
   VO1Saturday: {fileID: 8300000, guid: c86c868e145c46247bde85746647364c, type: 3}
+  VO1Drink: {fileID: 8300000, guid: 242d22b77ddf0ca41ae16cd2c879e41f, type: 3}
+  VO1Papers: {fileID: 8300000, guid: 36da8654f82be924087900ccf65cbbe2, type: 3}
   volume: 0.5
 --- !u!4 &1526096061
 Transform:

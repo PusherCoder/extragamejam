@@ -38,6 +38,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioClip VO1Power;
     [SerializeField] private AudioClip VO1Forgotten;
     [SerializeField] private AudioClip VO1Saturday;
+    [SerializeField] private AudioClip VO1Drink;
+    [SerializeField] private AudioClip VO1Papers;
     [SerializeField] private float volume = .5f;
     private AudioSource ScenarioAudio;
 
@@ -70,11 +72,11 @@ public class GameManager : MonoBehaviour
                                       Adjustment = new RhythmAdjustment[]{ new RhythmAdjustment{ Key = HeartKey, TimeDown = 0.9f, TimeUp = 1.0f } } },
             new GameScriptController{ ScenarioTime = 25.0f,   Subtitle = "*crunching sounds*", VOClip = null,
                                       Adjustment = new RhythmAdjustment[]{ new RhythmAdjustment{ Key = HeartKey, TimeDown = 0.8f, TimeUp = 1.0f } } },
-            new GameScriptController{ ScenarioTime = 35.0f,   Subtitle = "*drinking sounds*", VOClip = null,
+            new GameScriptController{ ScenarioTime = 35.0f,   Subtitle = "*drinking sounds*", VOClip = VO1Drink,
                                       Adjustment = new RhythmAdjustment[]{ new RhythmAdjustment{ Key = HeartKey, TimeDown = 1.0f, TimeUp = 1.0f } } },
             new GameScriptController{ ScenarioTime = 45.0f,   Subtitle = "Wait, did I forget to pay the power bill again?", VOClip = VO1Power,
                                       Adjustment = new RhythmAdjustment[]{ new RhythmAdjustment{ Key = BreathKey, TimeDown = 1.5f, TimeUp = 1.5f } } },
-            new GameScriptController{ ScenarioTime = 50.0f,   Subtitle = "*papers shuffling*", VOClip = null,
+            new GameScriptController{ ScenarioTime = 50.0f,   Subtitle = "*papers shuffling*", VOClip = VO1Papers,
                                       Adjustment = new RhythmAdjustment[]{ new RhythmAdjustment{ Key = BreathKey, TimeDown = 1.0f, TimeUp = 1.0f } } },
             new GameScriptController{ ScenarioTime = 60.0f,   Subtitle = "*Whew* I must have forgotten that I paid it early.", VOClip = VO1Forgotten,
                                       Adjustment = new RhythmAdjustment[]{ new RhythmAdjustment{ Key = BreathKey, TimeDown = 1.8f, TimeUp = 1.8f } } },
