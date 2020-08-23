@@ -1,3 +1,14 @@
+Scenario 0:
+
+"Monday mornings are the worst."
+"There's nothing but me, and my heartbeat."
+*Heartbeat sounds*
+"If I focus hard enough, it's like I can control it. Like tapping a key on my keyboard."
+*Heartbeat switches over to player*
+"I can make it beat faster."
+"Or slower."
+"Probably best not to focus on it too much."
+
 Scenario 1:
 
 "Looks like cereal again."
