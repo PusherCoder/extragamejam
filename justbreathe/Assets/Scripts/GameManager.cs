@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static bool HaveFailedScenario = false;
+    public static int Level = 1;
 
     private struct RhythmAdjustment
     {
