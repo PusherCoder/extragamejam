@@ -1210,6 +1210,12 @@ MonoBehaviour:
   deathScreenCanvasGroup: {fileID: 0}
   deathScreenText: {fileID: 0}
   holdSpaceImage: {fileID: 0}
+  VO1Cereal: {fileID: 8300000, guid: 6a670b1514c239241a6b9346d79b9d6d, type: 3}
+  VO1Sugar: {fileID: 8300000, guid: 5ea24ed31dafe3e42a49fcc5bce48d51, type: 3}
+  VO1Power: {fileID: 8300000, guid: 8956c27646e3075458fb1ca8f8e143d0, type: 3}
+  VO1Forgotten: {fileID: 8300000, guid: db41247ca77bac44d89fcf89fa8ab3be, type: 3}
+  VO1Saturday: {fileID: 8300000, guid: c86c868e145c46247bde85746647364c, type: 3}
+  volume: 0.5
 --- !u!4 &1526096061
 Transform:
   m_ObjectHideFlags: 0
