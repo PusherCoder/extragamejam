@@ -10,7 +10,7 @@ public class KeyDisplay : MonoBehaviour
 {
     private const float HealthFillDown = .4f;
     private const float HealthFillUp = .2f;
-    private const int ImpulseKeyForgiveness = 6;
+    private const int ImpulseKeyForgiveness = 5;
     private const float DontTakeInputTime = .5f;
 
     public UnityEvent OnFail = new UnityEvent();
@@ -160,7 +160,7 @@ public class KeyDisplay : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.HaveFailedScenario) return;
+        if (GameManager.HaveFailedScenario || GameManager.HaveBeatScenario) return;
 
         CheckActive();
         UpdateUI();

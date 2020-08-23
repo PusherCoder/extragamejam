@@ -104,6 +104,14 @@ public class Scenarios
                 VOClip = manager.VO1Focus,
                 Volume = .5f,
             },
+
+            new GameScriptController
+            {
+                ScenarioTime = 40.0f,
+                Subtitle = "",
+                VOClip = null,
+                Volume = .5f,
+            },
         };
     }
 
