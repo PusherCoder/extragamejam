@@ -2178,9 +2178,9 @@ MonoBehaviour:
   VO2Crunching1: {fileID: 8300000, guid: 32ca3a8cf428d074192204f722526265, type: 3}
   VO2Sugar: {fileID: 8300000, guid: 5ea24ed31dafe3e42a49fcc5bce48d51, type: 3}
   VO2Crunching2: {fileID: 8300000, guid: 53d5dfde885e03148ba420e6d9bab3b1, type: 3}
-  VO2Drink: {fileID: 8300000, guid: 242d22b77ddf0ca41ae16cd2c879e41f, type: 3}
+  VO2Drink: {fileID: 8300000, guid: f80c8a6ce0e62b24b9f0081b871985bd, type: 3}
   VO2Power: {fileID: 8300000, guid: 8956c27646e3075458fb1ca8f8e143d0, type: 3}
-  VO2Papers: {fileID: 8300000, guid: 36da8654f82be924087900ccf65cbbe2, type: 3}
+  VO2Papers: {fileID: 8300000, guid: aef99447547158945b137b24d143810b, type: 3}
   VO2Forgotten: {fileID: 8300000, guid: db41247ca77bac44d89fcf89fa8ab3be, type: 3}
   VO2Saturday: {fileID: 8300000, guid: c86c868e145c46247bde85746647364c, type: 3}
   VO2Crunching3: {fileID: 8300000, guid: f50c53e940e7050478065b7f2bdd461e, type: 3}
