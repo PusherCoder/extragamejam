@@ -184,7 +184,7 @@ public class GameManager : MonoBehaviour
         if (EyeKey.Active == false) return;
         if (HaveBeatScenario || HaveFailedScenario) return;
 
-        float blurAmount = Mathf.Lerp(25f, 0f, EyeKey.FillAmount);
+        float blurAmount = Mathf.Lerp(15f, 0f, EyeKey.FillAmount);
         Blur.SetBlurAmount(blurAmount);
     }
 
