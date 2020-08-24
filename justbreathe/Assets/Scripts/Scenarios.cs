@@ -558,12 +558,6 @@ public class Scenarios
                 {
                     new RhythmAdjustment
                     {
-                        Key = EyeKey,
-                        TimeDown = 3f,
-                        TimeUp = 3f
-                    },
-                    new RhythmAdjustment
-                    {
                         Key = IntestinesKey,
                         TimeDown = 3f,
                         TimeUp = 3f
@@ -633,16 +627,7 @@ public class Scenarios
                 ScenarioTime = 42.0f,
                 Subtitle = "Oh, uh, just fine. H-how are you?",
                 VOClip = manager.VO4JustFine,
-                Volume = .5f,
-                Adjustment = new RhythmAdjustment[]
-                {
-                    new RhythmAdjustment
-                    {
-                        Key = EyeKey,
-                        TimeDown = 2f,
-                        TimeUp = 2f
-                    }
-                }
+                Volume = .5f
             },
 
             new GameScriptController

@@ -7,7 +7,7 @@ public class GoToMainScene : MonoBehaviour
     {
         if (Input.anyKeyDown)
         {
-            GameManager.Level = 1;
+            GameManager.Level = 4;
             SceneManager.LoadScene("GameScene");
         }
     }
