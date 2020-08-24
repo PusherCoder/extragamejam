@@ -507,8 +507,8 @@ public class Scenarios
                     new RhythmAdjustment
                     {
                         Key = BreathKey,
-                        TimeDown = 2f,
-                        TimeUp = 2f
+                        TimeDown = 3f,
+                        TimeUp = 3f
                     },
                     new RhythmAdjustment
                     {
@@ -519,8 +519,8 @@ public class Scenarios
                     new RhythmAdjustment
                     {
                         Key = EyeKey,
-                        TimeDown = 4f,
-                        TimeUp = 4f
+                        TimeDown = 6f,
+                        TimeUp = 6f
                     },
                     new RhythmAdjustment
                     {
@@ -542,8 +542,8 @@ public class Scenarios
                     new RhythmAdjustment
                     {
                         Key = IntestinesKey,
-                        TimeDown = 2f,
-                        TimeUp = 2f
+                        TimeDown = 3f,
+                        TimeUp = 3f
                     }
                 }
             },
@@ -551,7 +551,7 @@ public class Scenarios
             new GameScriptController
             {
                 ScenarioTime = 16.0f,
-                Subtitle = "*typing an increadibly unimportant report*",
+                Subtitle = "*Typing Noises*",
                 VOClip = manager.VO4Typing1,
                 Volume = .5f,
                 Adjustment = new RhythmAdjustment[]
@@ -559,8 +559,8 @@ public class Scenarios
                     new RhythmAdjustment
                     {
                         Key = IntestinesKey,
-                        TimeDown = 3f,
-                        TimeUp = 3f
+                        TimeDown = 4f,
+                        TimeUp = 4f
                     }
                 }
             },
@@ -576,8 +576,8 @@ public class Scenarios
                     new RhythmAdjustment
                     {
                         Key = IntestinesKey,
-                        TimeDown = 1.5f,
-                        TimeUp = 1.5f
+                        TimeDown = 3f,
+                        TimeUp = 3f
                     }
                 }
             },
@@ -585,7 +585,7 @@ public class Scenarios
             new GameScriptController
             {
                 ScenarioTime = 30.0f,
-                Subtitle = "*useless typing continues*",
+                Subtitle = "*Typing Intensifies*",
                 VOClip = manager.VO4Typing2,
                 Volume = .5f,
                 Adjustment = new RhythmAdjustment[]
@@ -593,14 +593,14 @@ public class Scenarios
                     new RhythmAdjustment
                     {
                         Key = BreathKey,
-                        TimeDown = 1.5f,
-                        TimeUp = 1.5f
+                        TimeDown = 2f,
+                        TimeUp = 2f
                     },
                     new RhythmAdjustment
                     {
                         Key = IntestinesKey,
-                        TimeDown = 3f,
-                        TimeUp = 3f
+                        TimeDown = 4f,
+                        TimeUp = 4f
                     }
                 }
             },
@@ -610,16 +610,7 @@ public class Scenarios
                 ScenarioTime = 36.0f,
                 Subtitle = "Just need to get this report in so I can go to the bath-{Hey! How's it going?}",
                 VOClip = manager.VO4Report,
-                Volume = .5f,
-                Adjustment = new RhythmAdjustment[]
-                {
-                    new RhythmAdjustment
-                    {
-                        Key = HeartKey,
-                        TimeDown = 1f,
-                        TimeUp = 1f
-                    }
-                }
+                Volume = .5f
             },
 
             new GameScriptController
@@ -641,14 +632,8 @@ public class Scenarios
                     new RhythmAdjustment
                     {
                         Key = BreathKey,
-                        TimeDown = 2f,
-                        TimeUp = 2f
-                    },
-                    new RhythmAdjustment
-                    {
-                        Key = HeartKey,
-                        TimeDown = 0.8f,
-                        TimeUp = 0.8f
+                        TimeDown = 3f,
+                        TimeUp = 3f
                     }
                 }
             },
@@ -664,8 +649,8 @@ public class Scenarios
                     new RhythmAdjustment
                     {
                         Key = IntestinesKey,
-                        TimeDown = 1f,
-                        TimeUp = 1f
+                        TimeDown = 2f,
+                        TimeUp = 2f
                     }
                 }
             },
@@ -680,15 +665,9 @@ public class Scenarios
                 {
                     new RhythmAdjustment
                     {
-                        Key = HeartKey,
-                        TimeDown = 1f,
-                        TimeUp = 1f
-                    },
-                    new RhythmAdjustment
-                    {
                         Key = IntestinesKey,
-                        TimeDown = 3f,
-                        TimeUp = 3f
+                        TimeDown = 6f,
+                        TimeUp = 6f
                     }
                 }
             },
@@ -712,8 +691,8 @@ public class Scenarios
                     new RhythmAdjustment
                     {
                         Key = BreathKey,
-                        TimeDown = 1.5f,
-                        TimeUp = 1.5f
+                        TimeDown = 2f,
+                        TimeUp = 2f
                     }
                 }
             },
@@ -723,16 +702,7 @@ public class Scenarios
                 ScenarioTime = 86.0f,
                 Subtitle = "Oh, that's cool. . . yeah.",
                 VOClip = manager.VO4Cool,
-                Volume = .5f,
-                Adjustment = new RhythmAdjustment[]
-                {
-                    new RhythmAdjustment
-                    {
-                        Key = HeartKey,
-                        TimeDown = 0.9f,
-                        TimeUp = 0.9f
-                    }
-                }
+                Volume = .5f
             },
 
             new GameScriptController
@@ -746,8 +716,8 @@ public class Scenarios
                     new RhythmAdjustment
                     {
                         Key = IntestinesKey,
-                        TimeDown = 0.8f,
-                        TimeUp = 0.8f
+                        TimeDown = 1f,
+                        TimeUp = 1f
                     }
                 }
             },
@@ -762,12 +732,6 @@ public class Scenarios
                 {
                     new RhythmAdjustment
                     {
-                        Key = HeartKey,
-                        TimeDown = 0.8f,
-                        TimeUp = 0.8f
-                    },
-                    new RhythmAdjustment
-                    {
                         Key = IntestinesKey,
                         TimeDown = 3f,
                         TimeUp = 3f
@@ -778,7 +742,7 @@ public class Scenarios
             new GameScriptController
             {
                 ScenarioTime = 110.0f,
-                Subtitle = "Yeah. . . maybe. . .",
+                Subtitle = "Yeah, maybe. . .",
                 VOClip = manager.VO4Maybe,
                 Volume = .5f
             },
