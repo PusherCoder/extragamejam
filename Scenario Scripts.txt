@@ -36,3 +36,21 @@ Scenario 2:
 *Gasping*
 "I just wish she would call me back."
 *Running again*
+
+Scenario 3:
+
+"Oh dear God, I should not have had that burrito for lunch."
+*Typing Sounds*
+"My poor stomach. My poor. . . uh oh."
+*Typing Sounds*
+"Just need to get this report in so I can go to the bath-" Girl: "Hey! How's it going?"
+Real: "Oh, uh, just fine. H-how are you?"
+Girl: "Not bad. Hey, I just wanted to tell you that I might need to postpone our date on Saturday."
+"Oh god, not now. PLEASE not now."
+Real: "Oh, y-yeah, no problem. Everything okay?"
+Girl: "Yeah, it's just that I had a friend suddenly decide to come into town and he really wanted to hang out."
+"He!? HE wanted to hang out?"
+Real: "Oh, that's cool. . . yeah."
+"Buritto PLEASE!"
+Real: "Maybe we can do something the next weekend?"
+Girl: "Maybe. . ."
