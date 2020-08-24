@@ -293,6 +293,7 @@ public class GameManager : MonoBehaviour
             Level++;
             if (Level > 4) ThanksForPlaying();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            else SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
         restartAmount = Mathf.Clamp01(restartAmount);
