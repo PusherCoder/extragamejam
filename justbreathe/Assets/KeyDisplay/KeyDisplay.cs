@@ -247,6 +247,8 @@ public class KeyDisplay : MonoBehaviour
     private bool inKeyPressTime;
     private void UpdateHealth()
     {
+        float difficultyMod = 4f / (GameManager.AdaptiveDifficulty + 4f);
+
         impulseInvincibility -= Time.deltaTime;
 
         if (Active == false || canvasGroup.alpha < .95f || timeSinceStartup < DontTakeInputTime)
@@ -259,7 +261,7 @@ public class KeyDisplay : MonoBehaviour
         {
             if (IsDown != ShouldBeDown)
             {
-                FillAmount -= Time.deltaTime * HealthFillDown;
+                FillAmount -= Time.deltaTime * HealthFillDown * difficultyMod;
                 keyStateImage.color = incorrectColor;
             }
             else
@@ -284,7 +286,7 @@ public class KeyDisplay : MonoBehaviour
 
                 if (impulseInvincibility < 0f)
                 {
-                    FillAmount -= HealthFillDown;
+                    FillAmount -= HealthFillDown * difficultyMod;
                     impulseInvincibility = .15f;
                 }
             }
@@ -301,7 +303,7 @@ public class KeyDisplay : MonoBehaviour
                 {
                     if (impulseInvincibility < 0f)
                     {
-                        FillAmount -= HealthFillDown;
+                        FillAmount -= HealthFillDown * difficultyMod;
                         impulseInvincibility = .15f;
                     }
                 }
