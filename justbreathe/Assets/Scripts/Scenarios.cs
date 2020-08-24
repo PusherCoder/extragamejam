@@ -472,6 +472,64 @@ public class Scenarios
             },
         };
     }
+
+    public static GameScriptController[] GetLevel4Script(GameManager manager, KeyDisplay HeartKey, KeyDisplay BreathKey, KeyDisplay EyeKey, KeyDisplay IntestinesKey)
+    {
+        return new GameScriptController[]
+        {
+            new GameScriptController
+            {
+                ScenarioTime = 0.0f,
+                Subtitle = "",
+                VOClip = null,
+                HeartEnabled = true,
+                LungsEnabled = true,
+                EyesEnabled = true,
+                IntestinesEnabled = true,
+                Adjustment = new RhythmAdjustment[]
+                {
+                    new RhythmAdjustment
+                    {
+                        Key = BreathKey,
+                        TimeDown = 2f,
+                        TimeUp = 2f
+                    },
+                    new RhythmAdjustment
+                    {
+                        Key = HeartKey,
+                        TimeDown = 1f,
+                        TimeUp = 1f
+                    },
+                    new RhythmAdjustment
+                    {
+                        Key = EyeKey,
+                        TimeDown = 5f,
+                        TimeUp = 5f
+                    },
+                    new RhythmAdjustment
+                    {
+                        Key = IntestinesKey,
+                        TimeDown = 3f,
+                        TimeUp = 3f
+                    }
+                }
+            },
+
+            new GameScriptController
+            {
+                ScenarioTime = 100.0f,
+                Subtitle = "",
+                VOClip = null
+            },
+
+            new GameScriptController
+            {
+                ScenarioTime = 101.0f,
+                Subtitle = "",
+                VOClip = null
+            },
+        };
+    }
 }
 
 public struct RhythmAdjustment
@@ -491,4 +549,5 @@ public struct GameScriptController
     public bool HeartEnabled;
     public bool LungsEnabled;
     public bool EyesEnabled;
+    public bool IntestinesEnabled;
 }

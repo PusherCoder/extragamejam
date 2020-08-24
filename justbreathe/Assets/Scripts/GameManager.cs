@@ -8,12 +8,13 @@ public class GameManager : MonoBehaviour
 {
     public static bool HaveFailedScenario = false;
     public static bool HaveBeatScenario = false;
-    public static int Level = 3;
+    public static int Level = 4;
 
     [Header("General Game Elements")]
     [SerializeField] private KeyDisplay BreathKey;
     [SerializeField] private KeyDisplay HeartKey;
     [SerializeField] private KeyDisplay EyeKey;
+    [SerializeField] private KeyDisplay IntestinesKey;
     [SerializeField] private UnityEngine.UI.Text Subtitles;
     [SerializeField] private CanvasGroup deathScreenCanvasGroup;
     [SerializeField] private Text deathScreenText;
@@ -56,9 +57,13 @@ public class GameManager : MonoBehaviour
     public AudioClip VO3Up;
     public AudioClip VO3Gasping2;
     public AudioClip VO3CallMe;
-
     public Sprite ManMan3;
     public Sprite Background3;
+
+    [Header("Scenario 4 Data")]
+    public AudioClip ShitPants;
+    public Sprite ManMan4;
+    public Sprite Background4;
 
     private GameScriptController[] ScenarioGameScript;
     private float ScenarioTime;
@@ -72,9 +77,11 @@ public class GameManager : MonoBehaviour
         BreathKey.SetInitalValues("F", 2.0f, 2.0f, InputStyle.UpDown, KeyCode.F);
         HeartKey.SetInitalValues("_", 1.0f, 1.0f, InputStyle.Impulse, KeyCode.Space);
         EyeKey.SetInitalValues("J", 5.0f, 5.0f, InputStyle.Impulse, KeyCode.J);
+        IntestinesKey.SetInitalValues("K", 3.0f, 3.0f, InputStyle.UpDown, KeyCode.K);
         EyeKey.HealthFillUp = .05f;
         BreathKey.OnFail.AddListener(Asphyxiate);
         HeartKey.OnFail.AddListener(HeartAttack);
+        IntestinesKey.OnFail.AddListener(ShartAttack);
 
         ScenarioTime = 0f;
         ScenarioPosition = -1;
@@ -84,6 +91,7 @@ public class GameManager : MonoBehaviour
         if (Level == 1) LoadLevel1();
         else if (Level == 2) LoadLevel2();
         else if (Level == 3) LoadLevel3();
+        else if (Level == 4) LoadLevel4();
         else ThanksForPlaying();
 
         deathScreenCanvasGroup.alpha = 0;
@@ -117,6 +125,13 @@ public class GameManager : MonoBehaviour
         Background.sprite = Background3;
         ManMan.sprite = ManMan3;
     }
+
+    private void LoadLevel4()
+    { 
+        ScenarioGameScript = Scenarios.GetLevel4Script(this, HeartKey, BreathKey, EyeKey, IntestinesKey);
+        Background.sprite = Background4;
+        ManMan.sprite = ManMan4;
+    }
     
     private void Asphyxiate()
     {
@@ -132,6 +147,21 @@ public class GameManager : MonoBehaviour
         if (fadeInDeathScreen) return;
 
         deathScreenText.text = "you died of a heart attack\nhold space to retry";
+        fadeInDeathScreen = true;
+        HaveFailedScenario = true;
+    }
+
+    private void ShartAttack()
+    {
+        if (fadeInDeathScreen) return;
+
+        AudioSource shitSFX = gameObject.AddComponent<AudioSource>();
+        shitSFX.clip = ShitPants;
+        shitSFX.playOnAwake = false;
+        shitSFX.volume = .5f;
+        shitSFX.Play();
+
+        deathScreenText.text = "you shat yourself\nhold space to retry";
         fadeInDeathScreen = true;
         HaveFailedScenario = true;
     }
@@ -166,6 +196,7 @@ public class GameManager : MonoBehaviour
             if (ScenarioGameScript[ScenarioPosition].HeartEnabled) HeartKey.Active = true;
             if (ScenarioGameScript[ScenarioPosition].LungsEnabled) BreathKey.Active = true;
             if (ScenarioGameScript[ScenarioPosition].EyesEnabled) EyeKey.Active = true;
+            if (ScenarioGameScript[ScenarioPosition].IntestinesEnabled) IntestinesKey.Active = true;
 
             if (ScenarioGameScript[ScenarioPosition].Adjustment != null)
             {
