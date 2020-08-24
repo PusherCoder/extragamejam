@@ -1687,6 +1687,23 @@ MonoBehaviour:
   VO3CallMe: {fileID: 8300000, guid: 9e137c2fa6c53e94ea6135bf72647f17, type: 3}
   ManMan3: {fileID: 21300000, guid: e51b18ef89bf39444999880b259a0a8e, type: 3}
   Background3: {fileID: 21300000, guid: 280d01384004a6542a29fc582e80e885, type: 3}
+  VO4Burrito: {fileID: 8300000, guid: a38a0343d4caec64fb2cdad4291dc08d, type: 3}
+  VO4Typing1: {fileID: 8300000, guid: 1083acebfa3bc3844a214a2e0c36ff61, type: 3}
+  VO4Stomach: {fileID: 8300000, guid: 96e15a44ef588fd4ea608cbb74fb932f, type: 3}
+  VO4Typing2: {fileID: 8300000, guid: 58472ebaa31e6e549a5c181e35b44610, type: 3}
+  VO4Report: {fileID: 8300000, guid: 297811ea25405034ea979c5977c2b589, type: 3}
+  VO4JustFine: {fileID: 8300000, guid: 4f3edb5aae6ebdd4a9d9ec7c485ad7ef, type: 3}
+  VO4Postpone: {fileID: 8300000, guid: 8e46f691df2e2a14ab27bdc6012a3691, type: 3}
+  VO4OhGod: {fileID: 8300000, guid: 8e0d813ca89ab034d8090a9b7506292d, type: 3}
+  VO4NoProblem: {fileID: 8300000, guid: a6758a81d1194fd4089ca802e3461103, type: 3}
+  VO4Friend: {fileID: 8300000, guid: 0700208e1d4f950418ef1f980da34a6f, type: 3}
+  VO4He: {fileID: 8300000, guid: 20136475b46cc83488f5a88cb744495c, type: 3}
+  VO4Cool: {fileID: 8300000, guid: c6e8db3c6eecc2743a80615c0233d35f, type: 3}
+  VO4Please: {fileID: 8300000, guid: cfe399f4e7c10754e90b3459192745fb, type: 3}
+  VO4NextWeekend: {fileID: 8300000, guid: 733f0c2b0b611c24db402c8da1af62f7, type: 3}
+  VO4Maybe: {fileID: 8300000, guid: 7098f04a014e3cc4f9312a81d38c8305, type: 3}
+  ManMan4: {fileID: 21300000, guid: aa18c5fa850307b4c93d5f56eae639bd, type: 3}
+  Background4: {fileID: 21300000, guid: 8a76a55449d0a8d44a75b61c048b9ffd, type: 3}
 --- !u!4 &1526096061
 Transform:
   m_ObjectHideFlags: 0

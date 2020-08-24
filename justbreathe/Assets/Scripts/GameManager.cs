@@ -59,9 +59,27 @@ public class GameManager : MonoBehaviour
     public AudioClip VO3Up;
     public AudioClip VO3Gasping2;
     public AudioClip VO3CallMe;
-
     public Sprite ManMan3;
     public Sprite Background3;
+
+    [Header("Scenario 4 Data")]
+    public AudioClip VO4Burrito;
+    public AudioClip VO4Typing1;
+    public AudioClip VO4Stomach;
+    public AudioClip VO4Typing2;
+    public AudioClip VO4Report;
+    public AudioClip VO4JustFine;
+    public AudioClip VO4Postpone;
+    public AudioClip VO4OhGod;
+    public AudioClip VO4NoProblem;
+    public AudioClip VO4Friend;
+    public AudioClip VO4He;
+    public AudioClip VO4Cool;
+    public AudioClip VO4Please;
+    public AudioClip VO4NextWeekend;
+    public AudioClip VO4Maybe;
+    public Sprite ManMan4;
+    public Sprite Background4;
 
     private GameScriptController[] ScenarioGameScript;
     private float ScenarioTime;
