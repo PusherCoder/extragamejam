@@ -399,10 +399,44 @@ public class Scenarios
 
             new GameScriptController
             {
+                ScenarioTime = 37.0f,
+                Subtitle = "*Heavy breathing noises*",
+                VOClip = null,
+                Volume = .5f,
+                Adjustment = new RhythmAdjustment[]
+                {
+                    new RhythmAdjustment
+                    {
+                        Key = EyeKey,
+                        TimeDown = 1.0f,
+                        TimeUp = 1.0f
+                    }
+                }
+            },
+
+            new GameScriptController
+            {
                 ScenarioTime = 39.0f,
                 Subtitle = "Stupid sun right on the stupid horizon, right in my stupid eyes",
                 VOClip = manager.VO3Eyes,
                 Volume = .5f
+            },
+
+            new GameScriptController
+            {
+                ScenarioTime = 47.0f,
+                Subtitle = "Stupid sun right on the stupid horizon, right in my stupid eyes",
+                VOClip = null,
+                Volume = .5f,
+                Adjustment = new RhythmAdjustment[]
+                {
+                    new RhythmAdjustment
+                    {
+                        Key = EyeKey,
+                        TimeDown = 3.5f,
+                        TimeUp = 3.5f
+                    }
+                }
             },
 
             new GameScriptController
