@@ -36,14 +36,14 @@ public class GameManager : MonoBehaviour
 
     [Header("Scenario 2 Data")]
     public AudioClip VO2Cereal;
+    public AudioClip VO2Crunching1;
     public AudioClip VO2Sugar;
+    public AudioClip VO2Crunching2;
+    public AudioClip VO2Drink;
     public AudioClip VO2Power;
+    public AudioClip VO2Papers;
     public AudioClip VO2Forgotten;
     public AudioClip VO2Saturday;
-    public AudioClip VO2Drink;
-    public AudioClip VO2Papers;
-    public AudioClip VO2Crunching1;
-    public AudioClip VO2Crunching2;
     public AudioClip VO2Crunching3;
     public Sprite ManMan2;
     public Sprite Background2;
@@ -64,6 +64,21 @@ public class GameManager : MonoBehaviour
     public Sprite Background3;
 
     [Header("Scenario 4 Data")]
+    public AudioClip VO4Burrito;
+    public AudioClip VO4Typing1;
+    public AudioClip VO4Stomach;
+    public AudioClip VO4Typing2;
+    public AudioClip VO4Report;
+    public AudioClip VO4JustFine;
+    public AudioClip VO4Postpone;
+    public AudioClip VO4OhGod;
+    public AudioClip VO4NoProblem;
+    public AudioClip VO4Friend;
+    public AudioClip VO4He;
+    public AudioClip VO4Cool;
+    public AudioClip VO4Please;
+    public AudioClip VO4NextWeekend;
+    public AudioClip VO4Maybe;
     public AudioClip ShitPants;
     public Sprite ManMan4;
     public Sprite Background4;

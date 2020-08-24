@@ -533,9 +533,10 @@ public class Scenarios
 
             new GameScriptController
             {
-                ScenarioTime = 100.0f,
-                Subtitle = "",
-                VOClip = null
+                ScenarioTime = 8.0f,
+                Subtitle = "Oh dear GOD, I should NOT have had that burrito for lunch.",
+                VOClip = manager.VO4Burrito,
+                Volume = .5f
             },
 
             new GameScriptController
@@ -544,65 +545,6 @@ public class Scenarios
                 Subtitle = "",
                 VOClip = null
             },
-        };
-    }
-
-    public static GameScriptController[] GetLevel4Script(GameManager manager, KeyDisplay HeartKey, KeyDisplay BreathKey, KeyDisplay EyeKey, KeyDisplay StomachKey, KeyDisplay AssKey)
-    {
-        return new GameScriptController[]
-        {
-            new GameScriptController
-            {
-                ScenarioTime = 0.0f,
-                Subtitle = "",
-                VOClip = null,
-                HeartEnabled = true,
-                LungsEnabled = true,
-                EyesEnabled = true,
-                Adjustment = new RhythmAdjustment[]
-                {
-                    new RhythmAdjustment
-                    {
-                        Key = BreathKey,
-                        TimeDown = 1.5f,
-                        TimeUp = 1.5f
-                    },
-                    new RhythmAdjustment
-                    {
-                        Key = HeartKey,
-                        TimeDown = .75f,
-                        TimeUp = .75f
-                    },
-                    new RhythmAdjustment
-                    {
-                        Key = EyeKey,
-                        TimeDown = 4.5f,
-                        TimeUp = 4.5f
-                    },
-                    new RhythmAdjustment
-                    {
-                        Key = StomachKey,
-                        TimeDown = 4.5f,
-                        TimeUp = 4.5f
-                    },
-                    new RhythmAdjustment
-                    {
-                        Key = AssKey,
-                        TimeDown = 4.5f,
-                        TimeUp = 4.5f
-                    }
-                }
-            },
-
-            new GameScriptController
-            {
-                ScenarioTime = 8.0f,
-                Subtitle = "Oh dear GOD, I should NOT have had that burrito for lunch.",
-                VOClip = manager.VO4Burrito,
-                Volume = .5f
-            },
-
-
         };
     }
 }
