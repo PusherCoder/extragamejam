@@ -99,7 +99,7 @@ public class Scenarios
 
             new GameScriptController
             {
-                ScenarioTime = 35.0f,
+                ScenarioTime = 45.0f,
                 Subtitle = "Probably best not to focus on it too much.",
                 VOClip = manager.VO1Focus,
                 Volume = .5f,
@@ -107,7 +107,7 @@ public class Scenarios
 
             new GameScriptController
             {
-                ScenarioTime = 40.0f,
+                ScenarioTime = 50.0f,
                 Subtitle = "",
                 VOClip = null,
                 Volume = .5f,
@@ -141,7 +141,7 @@ public class Scenarios
             new GameScriptController
             { 
                 ScenarioTime = 14.0f,  
-                Subtitle = "*crunching sounds*",
+                Subtitle = "*eating dry cereal*",
                 VOClip = manager.VO2Crunching1,
                 Adjustment = null,
                 Volume = .5f
@@ -167,7 +167,7 @@ public class Scenarios
             new GameScriptController
             { 
                 ScenarioTime = 25.0f,   
-                Subtitle = "*crunching sounds*",
+                Subtitle = "*eating pure sugar cereal*",
                 VOClip = manager.VO2Crunching2,
                 Volume = .5f,
                 Adjustment = new RhythmAdjustment[]
@@ -184,7 +184,7 @@ public class Scenarios
             new GameScriptController
             { 
                 ScenarioTime = 35.0f,   
-                Subtitle = "*drinking sounds*", 
+                Subtitle = "*drinking tap water*", 
                 VOClip = manager.VO2Drink,
                 Volume = .8f,
                 Adjustment = new RhythmAdjustment[]
@@ -201,7 +201,7 @@ public class Scenarios
             new GameScriptController
             { 
                 ScenarioTime = 45.0f,   
-                Subtitle = "Wait, did I forget to pay the power bill again?", 
+                Subtitle = "Wait, did I forget to pay the power bill yesterday?", 
                 VOClip = manager.VO2Power,
                 Volume = .5f,
                 Adjustment = new RhythmAdjustment[]
@@ -218,7 +218,7 @@ public class Scenarios
             new GameScriptController
             { 
                 ScenarioTime = 50.0f,   
-                Subtitle = "*papers shuffling*", 
+                Subtitle = "*looking through various bills*", 
                 VOClip = manager.VO2Papers,
                 Volume = .5f,
                 Adjustment = new RhythmAdjustment[]
@@ -235,7 +235,7 @@ public class Scenarios
             new GameScriptController
             { 
                 ScenarioTime = 60.0f,   
-                Subtitle = "*Whew* I must have forgotten that I paid it early.", 
+                Subtitle = "*Whew* I must have forgotten that I paid it earlier this month.", 
                 VOClip = manager.VO2Forgotten,
                 Volume = .5f,
                 Adjustment = new RhythmAdjustment[]
@@ -252,7 +252,7 @@ public class Scenarios
             new GameScriptController
             { 
                 ScenarioTime = 70.0f,   
-                Subtitle = "I wish today was Saturday.", 
+                Subtitle = "I wish it was Saturday.", 
                 VOClip = manager.VO2Saturday,
                 Volume = .5f,
                 Adjustment = new RhythmAdjustment[]
@@ -269,7 +269,7 @@ public class Scenarios
             new GameScriptController
             {
                 ScenarioTime = 80.0f,   
-                Subtitle = "*crunching sounds*",
+                Subtitle = "*sadly eating cereal*",
                 VOClip = manager.VO2Crunching3,
                 Volume = .5f,
                 Adjustment = null 
@@ -315,7 +315,7 @@ public class Scenarios
             new GameScriptController
             {
                 ScenarioTime = 5.0f,
-                Subtitle = "*Heavy breathing noises*",
+                Subtitle = "*heavy breathing*",
                 VOClip = manager.VO3HeavyBreathing,
                 Volume = .5f
             },
@@ -331,7 +331,7 @@ public class Scenarios
             new GameScriptController
             {
                 ScenarioTime = 17.0f,
-                Subtitle = "Just because she likes it doesn't mean I need to, right?",
+                Subtitle = "Just because SHE likes it doesn't mean I need to, right?",
                 VOClip = manager.VO3She,
                 Volume = .5f
             },
@@ -362,7 +362,7 @@ public class Scenarios
             new GameScriptController
             {
                 ScenarioTime = 25.0f,
-                Subtitle = "*Choking*",
+                Subtitle = "*choking on spit*",
                 VOClip = manager.VO3Choking,
                 Volume = .5f
             },
@@ -378,7 +378,7 @@ public class Scenarios
             new GameScriptController
             {
                 ScenarioTime = 33.0f,
-                Subtitle = "*Heavy breathing noises*",
+                Subtitle = "*struggling for air*",
                 VOClip = manager.VO3Breathing2,
                 Volume = .5f,
                 Adjustment = new RhythmAdjustment[]
@@ -401,7 +401,7 @@ public class Scenarios
             new GameScriptController
             {
                 ScenarioTime = 37.0f,
-                Subtitle = "*Heavy breathing noises*",
+                Subtitle = "*struggling for air*",
                 VOClip = null,
                 Volume = .5f,
                 Adjustment = new RhythmAdjustment[]
@@ -424,7 +424,7 @@ public class Scenarios
             new GameScriptController
             {
                 ScenarioTime = 39.0f,
-                Subtitle = "Stupid sun right on the stupid horizon, right in my stupid eyes",
+                Subtitle = "Stupid sun right on the stupid horizon, right in my stupid eyes.",
                 VOClip = manager.VO3Eyes,
                 Volume = .5f
             },
@@ -432,7 +432,7 @@ public class Scenarios
             new GameScriptController
             {
                 ScenarioTime = 47.0f,
-                Subtitle = "Stupid sun right on the stupid horizon, right in my stupid eyes",
+                Subtitle = "Stupid sun right on the stupid horizon, right in my stupid eyes.",
                 VOClip = null,
                 Volume = .5f,
                 Adjustment = new RhythmAdjustment[]
@@ -449,7 +449,7 @@ public class Scenarios
             new GameScriptController
             {
                 ScenarioTime = 49.0f,
-                Subtitle = "*Gasping for air on the side of the road*",
+                Subtitle = "*gasping for air on the side of the road*",
                 VOClip = manager.VO3Gasping,
                 Volume = .5f,
                 Adjustment = new RhythmAdjustment[]
@@ -474,7 +474,7 @@ public class Scenarios
             new GameScriptController
             {
                 ScenarioTime = 63.0f,
-                Subtitle = "*Gasping*",
+                Subtitle = "*out-of-shape gasping*",
                 VOClip = manager.VO3Gasping2,
                 Volume = .5f
             },
@@ -551,7 +551,7 @@ public class Scenarios
             new GameScriptController
             {
                 ScenarioTime = 16.0f,
-                Subtitle = "*Typing Noises*",
+                Subtitle = "*typing an increadibly unimportant report*",
                 VOClip = manager.VO4Typing1,
                 Volume = .5f,
                 Adjustment = new RhythmAdjustment[]
@@ -585,7 +585,7 @@ public class Scenarios
             new GameScriptController
             {
                 ScenarioTime = 30.0f,
-                Subtitle = "*Typing Intensifies*",
+                Subtitle = "*useless typing continues*",
                 VOClip = manager.VO4Typing2,
                 Volume = .5f,
                 Adjustment = new RhythmAdjustment[]
@@ -778,7 +778,7 @@ public class Scenarios
             new GameScriptController
             {
                 ScenarioTime = 110.0f,
-                Subtitle = "Maybe. . .",
+                Subtitle = "Yeah. . . maybe. . .",
                 VOClip = manager.VO4Maybe,
                 Volume = .5f
             },
