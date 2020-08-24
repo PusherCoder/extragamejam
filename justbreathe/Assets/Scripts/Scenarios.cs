@@ -121,7 +121,7 @@ public class Scenarios
         {
             new GameScriptController
             { 
-                ScenarioTime = 0.0f,    
+                ScenarioTime = 2.0f,    
                 Subtitle = "", 
                 VOClip = null, 
                 Adjustment = null ,
@@ -131,7 +131,7 @@ public class Scenarios
 
             new GameScriptController
             { 
-                ScenarioTime = 2.0f,    
+                ScenarioTime = 7.0f,    
                 Subtitle = "Looks like cereal again.", 
                 VOClip = manager.VO2Cereal,
                 Adjustment = null,
@@ -140,16 +140,16 @@ public class Scenarios
 
             new GameScriptController
             { 
-                ScenarioTime = 10.0f,  
+                ScenarioTime = 14.0f,  
                 Subtitle = "*crunching sounds*",
-                VOClip = null,        
+                VOClip = manager.VO2Crunching1,
                 Adjustment = null,
                 Volume = .5f
             },
 
             new GameScriptController
             { 
-                ScenarioTime = 18.0f,   
+                ScenarioTime = 19.0f,   
                 Subtitle = "I wonder if all this sugar is good for me?", 
                 VOClip = manager.VO2Sugar,
                 Volume = .5f,
@@ -167,8 +167,8 @@ public class Scenarios
             new GameScriptController
             { 
                 ScenarioTime = 25.0f,   
-                Subtitle = "*crunching sounds*", 
-                VOClip = null,
+                Subtitle = "*crunching sounds*",
+                VOClip = manager.VO2Crunching2,
                 Volume = .5f,
                 Adjustment = new RhythmAdjustment[]
                 {
@@ -186,7 +186,7 @@ public class Scenarios
                 ScenarioTime = 35.0f,   
                 Subtitle = "*drinking sounds*", 
                 VOClip = manager.VO2Drink,
-                Volume = .5f,
+                Volume = .8f,
                 Adjustment = new RhythmAdjustment[]
                 { 
                     new RhythmAdjustment
@@ -220,7 +220,7 @@ public class Scenarios
                 ScenarioTime = 50.0f,   
                 Subtitle = "*papers shuffling*", 
                 VOClip = manager.VO2Papers,
-                Volume = .25f,
+                Volume = .5f,
                 Adjustment = new RhythmAdjustment[]
                 { 
                     new RhythmAdjustment
@@ -269,8 +269,9 @@ public class Scenarios
             new GameScriptController
             {
                 ScenarioTime = 80.0f,   
-                Subtitle = "*crunching sounds*", 
-                VOClip = null,
+                Subtitle = "*crunching sounds*",
+                VOClip = manager.VO2Crunching3,
+                Volume = .5f,
                 Adjustment = null 
             }
         };
@@ -360,7 +361,7 @@ public class Scenarios
 
             new GameScriptController
             {
-                ScenarioTime = 23.0f,
+                ScenarioTime = 25.0f,
                 Subtitle = "*Choking*",
                 VOClip = manager.VO3Choking,
                 Volume = .5f
@@ -410,6 +411,12 @@ public class Scenarios
                         Key = EyeKey,
                         TimeDown = 1.0f,
                         TimeUp = 1.0f
+                    },
+                    new RhythmAdjustment
+                    {
+                        Key = BreathKey,
+                        TimeDown = 1.2f,
+                        TimeUp = 1.2f
                     }
                 }
             },
@@ -444,7 +451,16 @@ public class Scenarios
                 ScenarioTime = 49.0f,
                 Subtitle = "*Gasping for air on the side of the road*",
                 VOClip = manager.VO3Gasping,
-                Volume = .5f
+                Volume = .5f,
+                Adjustment = new RhythmAdjustment[]
+                {
+                    new RhythmAdjustment
+                    {
+                        Key = BreathKey,
+                        TimeDown = 0.8f,
+                        TimeUp = 0.8f
+                    }
+                }
             },
 
             new GameScriptController

@@ -35,12 +35,15 @@ public class GameManager : MonoBehaviour
 
     [Header("Scenario 2 Data")]
     public AudioClip VO2Cereal;
+    public AudioClip VO2Crunching1;
     public AudioClip VO2Sugar;
+    public AudioClip VO2Crunching2;
+    public AudioClip VO2Drink;
     public AudioClip VO2Power;
+    public AudioClip VO2Papers;
     public AudioClip VO2Forgotten;
     public AudioClip VO2Saturday;
-    public AudioClip VO2Drink;
-    public AudioClip VO2Papers;
+    public AudioClip VO2Crunching3;
     public Sprite ManMan2;
     public Sprite Background2;
 
