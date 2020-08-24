@@ -291,6 +291,7 @@ public class GameManager : MonoBehaviour
         if (restartAmount >= 1f)
         {
             Level++;
+            if (Level > 4) ThanksForPlaying();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
