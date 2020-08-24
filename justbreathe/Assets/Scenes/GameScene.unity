@@ -2104,7 +2104,7 @@ PrefabInstance:
         type: 3}
       propertyPath: lineCanvasGroup
       value: 
-      objectReference: {fileID: 582991576}
+      objectReference: {fileID: 620951431}
     - target: {fileID: 7955316398115789705, guid: 2e93b0f08a2fdc745a30dd9d2559cd8b,
         type: 3}
       propertyPath: m_Sprite

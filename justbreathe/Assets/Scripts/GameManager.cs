@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static bool HaveFailedScenario = false;
     public static bool HaveBeatScenario = false;
-    public static int Level = 4;
+    public static int Level = 1;
 
     [Header("General Game Elements")]
     [SerializeField] private KeyDisplay BreathKey;
