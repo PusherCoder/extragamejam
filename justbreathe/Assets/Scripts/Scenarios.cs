@@ -507,26 +507,26 @@ public class Scenarios
                     new RhythmAdjustment
                     {
                         Key = BreathKey,
-                        TimeDown = 150f,
-                        TimeUp = 150f
+                        TimeDown = 2f,
+                        TimeUp = 2f
                     },
                     new RhythmAdjustment
                     {
                         Key = HeartKey,
-                        TimeDown = 150f,
-                        TimeUp = 150f
+                        TimeDown = 1f,
+                        TimeUp = 1f
                     },
                     new RhythmAdjustment
                     {
                         Key = EyeKey,
-                        TimeDown = 150f,
-                        TimeUp = 150f
+                        TimeDown = 4f,
+                        TimeUp = 4f
                     },
                     new RhythmAdjustment
                     {
                         Key = IntestinesKey,
-                        TimeDown = 150f,
-                        TimeUp = 150f
+                        TimeDown = 3f,
+                        TimeUp = 3f
                     }
                 }
             },
@@ -536,7 +536,16 @@ public class Scenarios
                 ScenarioTime = 8.0f,
                 Subtitle = "Oh dear GOD, I should NOT have had that burrito for lunch.",
                 VOClip = manager.VO4Burrito,
-                Volume = .5f
+                Volume = .5f,
+                Adjustment = new RhythmAdjustment[]
+                {
+                    new RhythmAdjustment
+                    {
+                        Key = IntestinesKey,
+                        TimeDown = 2f,
+                        TimeUp = 2f
+                    }
+                }
             },
 
             new GameScriptController
@@ -544,7 +553,22 @@ public class Scenarios
                 ScenarioTime = 16.0f,
                 Subtitle = "*Typing Noises*",
                 VOClip = manager.VO4Typing1,
-                Volume = .5f
+                Volume = .5f,
+                Adjustment = new RhythmAdjustment[]
+                {
+                    new RhythmAdjustment
+                    {
+                        Key = EyeKey,
+                        TimeDown = 3f,
+                        TimeUp = 3f
+                    },
+                    new RhythmAdjustment
+                    {
+                        Key = IntestinesKey,
+                        TimeDown = 3f,
+                        TimeUp = 3f
+                    }
+                }
             },
 
             new GameScriptController
@@ -552,7 +576,16 @@ public class Scenarios
                 ScenarioTime = 24.0f,
                 Subtitle = "My poor stomach. My poor. . . uh oh!",
                 VOClip = manager.VO4Stomach,
-                Volume = .5f
+                Volume = .5f,
+                Adjustment = new RhythmAdjustment[]
+                {
+                    new RhythmAdjustment
+                    {
+                        Key = IntestinesKey,
+                        TimeDown = 1.5f,
+                        TimeUp = 1.5f
+                    }
+                }
             },
 
             new GameScriptController
@@ -560,7 +593,22 @@ public class Scenarios
                 ScenarioTime = 30.0f,
                 Subtitle = "*Typing Intensifies*",
                 VOClip = manager.VO4Typing2,
-                Volume = .5f
+                Volume = .5f,
+                Adjustment = new RhythmAdjustment[]
+                {
+                    new RhythmAdjustment
+                    {
+                        Key = BreathKey,
+                        TimeDown = 1.5f,
+                        TimeUp = 1.5f
+                    },
+                    new RhythmAdjustment
+                    {
+                        Key = IntestinesKey,
+                        TimeDown = 3f,
+                        TimeUp = 3f
+                    }
+                }
             },
 
             new GameScriptController
@@ -568,7 +616,16 @@ public class Scenarios
                 ScenarioTime = 36.0f,
                 Subtitle = "Just need to get this report in so I can go to the bath-{Hey! How's it going?}",
                 VOClip = manager.VO4Report,
-                Volume = .5f
+                Volume = .5f,
+                Adjustment = new RhythmAdjustment[]
+                {
+                    new RhythmAdjustment
+                    {
+                        Key = HeartKey,
+                        TimeDown = 1f,
+                        TimeUp = 1f
+                    }
+                }
             },
 
             new GameScriptController
@@ -576,7 +633,16 @@ public class Scenarios
                 ScenarioTime = 42.0f,
                 Subtitle = "Oh, uh, just fine. H-how are you?",
                 VOClip = manager.VO4JustFine,
-                Volume = .5f
+                Volume = .5f,
+                Adjustment = new RhythmAdjustment[]
+                {
+                    new RhythmAdjustment
+                    {
+                        Key = EyeKey,
+                        TimeDown = 2f,
+                        TimeUp = 2f
+                    }
+                }
             },
 
             new GameScriptController
@@ -584,7 +650,22 @@ public class Scenarios
                 ScenarioTime = 53.0f,
                 Subtitle = "{Not bad. Hey, I just wanted to tell you that I might need to postpone our date on Saturday.}",
                 VOClip = manager.VO4Postpone,
-                Volume = .5f
+                Volume = .5f,
+                Adjustment = new RhythmAdjustment[]
+                {
+                    new RhythmAdjustment
+                    {
+                        Key = BreathKey,
+                        TimeDown = 2f,
+                        TimeUp = 2f
+                    },
+                    new RhythmAdjustment
+                    {
+                        Key = HeartKey,
+                        TimeDown = 0.8f,
+                        TimeUp = 0.8f
+                    }
+                }
             },
 
             new GameScriptController
@@ -592,7 +673,16 @@ public class Scenarios
                 ScenarioTime = 58.0f,
                 Subtitle = "Oh god, not now. PLEASE not now.",
                 VOClip = manager.VO4OhGod,
-                Volume = .5f
+                Volume = .5f,
+                Adjustment = new RhythmAdjustment[]
+                {
+                    new RhythmAdjustment
+                    {
+                        Key = IntestinesKey,
+                        TimeDown = 1f,
+                        TimeUp = 1f
+                    }
+                }
             },
 
             new GameScriptController
@@ -600,7 +690,22 @@ public class Scenarios
                 ScenarioTime =66.0f,
                 Subtitle = "Oh, y-yeah, no problem. Everything okay?",
                 VOClip = manager.VO4NoProblem,
-                Volume = .5f
+                Volume = .5f,
+                Adjustment = new RhythmAdjustment[]
+                {
+                    new RhythmAdjustment
+                    {
+                        Key = HeartKey,
+                        TimeDown = 1f,
+                        TimeUp = 1f
+                    },
+                    new RhythmAdjustment
+                    {
+                        Key = IntestinesKey,
+                        TimeDown = 3f,
+                        TimeUp = 3f
+                    }
+                }
             },
 
             new GameScriptController
@@ -616,7 +721,16 @@ public class Scenarios
                 ScenarioTime = 80.0f,
                 Subtitle = "He!? HE wanted to hang out?",
                 VOClip = manager.VO4He,
-                Volume = .5f
+                Volume = .5f,
+                Adjustment = new RhythmAdjustment[]
+                {
+                    new RhythmAdjustment
+                    {
+                        Key = BreathKey,
+                        TimeDown = 1.5f,
+                        TimeUp = 1.5f
+                    }
+                }
             },
 
             new GameScriptController
@@ -624,7 +738,16 @@ public class Scenarios
                 ScenarioTime = 86.0f,
                 Subtitle = "Oh, that's cool. . . yeah.",
                 VOClip = manager.VO4Cool,
-                Volume = .5f
+                Volume = .5f,
+                Adjustment = new RhythmAdjustment[]
+                {
+                    new RhythmAdjustment
+                    {
+                        Key = HeartKey,
+                        TimeDown = 0.9f,
+                        TimeUp = 0.9f
+                    }
+                }
             },
 
             new GameScriptController
@@ -632,7 +755,16 @@ public class Scenarios
                 ScenarioTime = 91.0f,
                 Subtitle = "Burrito PLEASE!",
                 VOClip = manager.VO4Please,
-                Volume = .5f
+                Volume = .5f,
+                Adjustment = new RhythmAdjustment[]
+                {
+                    new RhythmAdjustment
+                    {
+                        Key = IntestinesKey,
+                        TimeDown = 0.8f,
+                        TimeUp = 0.8f
+                    }
+                }
             },
 
             new GameScriptController
@@ -640,7 +772,22 @@ public class Scenarios
                 ScenarioTime = 97.0f,
                 Subtitle = "Maybe we can do something the next weekend?",
                 VOClip = manager.VO4NextWeekend,
-                Volume = .5f
+                Volume = .5f,
+                Adjustment = new RhythmAdjustment[]
+                {
+                    new RhythmAdjustment
+                    {
+                        Key = HeartKey,
+                        TimeDown = 0.8f,
+                        TimeUp = 0.8f
+                    },
+                    new RhythmAdjustment
+                    {
+                        Key = IntestinesKey,
+                        TimeDown = 3f,
+                        TimeUp = 3f
+                    }
+                }
             },
 
             new GameScriptController
