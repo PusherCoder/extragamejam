@@ -285,24 +285,156 @@ public class Scenarios
                 ScenarioTime = 0.0f,
                 Subtitle = "",
                 VOClip = null,
-                Adjustment = null ,
                 HeartEnabled = true,
                 LungsEnabled = true,
-                EyesEnabled = true
+                EyesEnabled = true,
+                Adjustment = new RhythmAdjustment[]
+                {
+                    new RhythmAdjustment
+                    {
+                        Key = BreathKey,
+                        TimeDown = 1.5f,
+                        TimeUp = 1.5f
+                    },
+                    new RhythmAdjustment
+                    {
+                        Key = HeartKey,
+                        TimeDown = .75f,
+                        TimeUp = .75f
+                    },
+                    new RhythmAdjustment
+                    {
+                        Key = EyeKey,
+                        TimeDown = 4.5f,
+                        TimeUp = 4.5f
+                    }
+                }
+            },
+
+            new GameScriptController
+            {
+                ScenarioTime = 5.0f,
+                Subtitle = "*Heavy breathing noises*",
+                VOClip = manager.VO3HeavyBreathing,
+                Volume = .5f
             },
 
             new GameScriptController
             {
                 ScenarioTime = 10.0f,
-                Subtitle = "",
-                VOClip = null
+                Subtitle = "I don't even like running, what am I doing out here?",
+                VOClip = manager.VO3Running,
+                Volume = .5f
             },
 
             new GameScriptController
             {
-                ScenarioTime = 11.0f,
+                ScenarioTime = 17.0f,
+                Subtitle = "Just because she likes it doesn't mean I need to, right?",
+                VOClip = manager.VO3She,
+                Volume = .5f
+            },
+
+            new GameScriptController
+            {
+                ScenarioTime = 21.0f,
                 Subtitle = "",
-                VOClip = null
+                VOClip = null,
+                Volume = .5f,
+                Adjustment = new RhythmAdjustment[]
+                {
+                    new RhythmAdjustment
+                    {
+                        Key = BreathKey,
+                        TimeDown = 1.1f,
+                        TimeUp = 1.1f
+                    },
+                    new RhythmAdjustment
+                    {
+                        Key = HeartKey,
+                        TimeDown = .6f,
+                        TimeUp = .6f
+                    }
+                }
+            },
+
+            new GameScriptController
+            {
+                ScenarioTime = 23.0f,
+                Subtitle = "*Choking*",
+                VOClip = manager.VO3Choking,
+                Volume = .5f
+            },
+
+            new GameScriptController
+            {
+                ScenarioTime = 30.0f,
+                Subtitle = "I think I swallowed a bug!",
+                VOClip = manager.VO3Bug,
+                Volume = .5f
+            },
+
+            new GameScriptController
+            {
+                ScenarioTime = 33.0f,
+                Subtitle = "*Heavy breathing noises*",
+                VOClip = manager.VO3Breathing2,
+                Volume = .5f,
+                Adjustment = new RhythmAdjustment[]
+                {
+                    new RhythmAdjustment
+                    {
+                        Key = BreathKey,
+                        TimeDown = 1.5f,
+                        TimeUp = 1.5f
+                    },
+                    new RhythmAdjustment
+                    {
+                        Key = HeartKey,
+                        TimeDown = .75f,
+                        TimeUp = .75f
+                    }
+                }
+            },
+
+            new GameScriptController
+            {
+                ScenarioTime = 39.0f,
+                Subtitle = "Stupid sun right on the stupid horizon, right in my stupid eyes",
+                VOClip = manager.VO3Eyes,
+                Volume = .5f
+            },
+
+            new GameScriptController
+            {
+                ScenarioTime = 49.0f,
+                Subtitle = "*Gasping for air on the side of the road*",
+                VOClip = manager.VO3Gasping,
+                Volume = .5f
+            },
+
+            new GameScriptController
+            {
+                ScenarioTime = 54.0f,
+                Subtitle = "How much longer do I need to keep this up?",
+                VOClip = manager.VO3Up,
+                Volume = .5f
+            },
+
+            new GameScriptController
+            {
+                ScenarioTime = 63.0f,
+                Subtitle = "*Gasping*",
+                VOClip = manager.VO3Gasping2,
+                Volume = .5f
+            },
+
+            new GameScriptController
+            {
+                ScenarioTime = 70.0f,
+                Subtitle = "I just wish she would call me back.",
+                VOClip = manager.VO3CallMe,
+                Volume = .5f
             },
         };
     }

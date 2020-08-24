@@ -1671,6 +1671,17 @@ MonoBehaviour:
   VO2Papers: {fileID: 8300000, guid: 36da8654f82be924087900ccf65cbbe2, type: 3}
   ManMan2: {fileID: 21300000, guid: 2a9b7e7befac0ef46acd31491d3a67f7, type: 3}
   Background2: {fileID: 21300000, guid: 1c6e45ac7c593244ca11bc305a9aa57d, type: 3}
+  VO3HeavyBreathing: {fileID: 8300000, guid: e2d3f2ceeaede3e4b8994aeabf768c3d, type: 3}
+  VO3Running: {fileID: 8300000, guid: 195e99d4f891b024d9f1363204632d59, type: 3}
+  VO3She: {fileID: 8300000, guid: a69edd444c9f2be43af899da473f4382, type: 3}
+  VO3Choking: {fileID: 8300000, guid: 87690d7a50222154b8e7d871d5effb87, type: 3}
+  VO3Bug: {fileID: 8300000, guid: bc3f1fe613b8db7449db9c1ec5a16fd6, type: 3}
+  VO3Breathing2: {fileID: 8300000, guid: 79320afe090c0b742b218234af279241, type: 3}
+  VO3Eyes: {fileID: 8300000, guid: 33f6a71c104c2c843bd10b72c23cff39, type: 3}
+  VO3Gasping: {fileID: 8300000, guid: ebfad54a9d5144747a44cb9fda49fc2c, type: 3}
+  VO3Up: {fileID: 8300000, guid: 97b4f631d225b0a4294392022252688f, type: 3}
+  VO3Gasping2: {fileID: 8300000, guid: cad69cb0ff15be24c985502f173f6569, type: 3}
+  VO3CallMe: {fileID: 8300000, guid: 9e137c2fa6c53e94ea6135bf72647f17, type: 3}
   ManMan3: {fileID: 21300000, guid: e51b18ef89bf39444999880b259a0a8e, type: 3}
   Background3: {fileID: 21300000, guid: 280d01384004a6542a29fc582e80e885, type: 3}
 --- !u!4 &1526096061
