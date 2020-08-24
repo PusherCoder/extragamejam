@@ -8,7 +8,9 @@ public class GameManager : MonoBehaviour
 {
     public static bool HaveFailedScenario = false;
     public static bool HaveBeatScenario = false;
-    public static int Level = 1;
+    public static int Level = 4;
+
+    public static int AdaptiveDifficulty = 0;
 
     [Header("General Game Elements")]
     [SerializeField] private KeyDisplay BreathKey;
@@ -158,6 +160,8 @@ public class GameManager : MonoBehaviour
         deathScreenText.text = "you asphyxiated :'(\nhold space to retry";
         fadeInDeathScreen = true;
         HaveFailedScenario = true;
+
+        AdaptiveDifficulty++;
     }
 
     private void HeartAttack()
@@ -167,6 +171,8 @@ public class GameManager : MonoBehaviour
         deathScreenText.text = "you died of a heart attack\nhold space to retry";
         fadeInDeathScreen = true;
         HaveFailedScenario = true;
+
+        AdaptiveDifficulty++;
     }
 
     private void ShartAttack()
@@ -182,6 +188,8 @@ public class GameManager : MonoBehaviour
         deathScreenText.text = "you shat yourself\nhold space to retry";
         fadeInDeathScreen = true;
         HaveFailedScenario = true;
+
+        AdaptiveDifficulty++;
     }
 
     private void Update()
@@ -264,6 +272,8 @@ public class GameManager : MonoBehaviour
     private void FadeInVictoryScreen()
     {
         if (fadeInVictoryScreen == false) return;
+
+        AdaptiveDifficulty = 0;
 
         deathScreenText.text = "scene finished \nhold space to continue";
 
