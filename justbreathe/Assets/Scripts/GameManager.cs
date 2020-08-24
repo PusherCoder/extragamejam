@@ -45,6 +45,18 @@ public class GameManager : MonoBehaviour
     public Sprite Background2;
 
     [Header("Scenario 3 Data")]
+    public AudioClip VO3HeavyBreathing;
+    public AudioClip VO3Running;
+    public AudioClip VO3She;
+    public AudioClip VO3Choking;
+    public AudioClip VO3Bug;
+    public AudioClip VO3Breathing2;
+    public AudioClip VO3Eyes;
+    public AudioClip VO3Gasping;
+    public AudioClip VO3Up;
+    public AudioClip VO3Gasping2;
+    public AudioClip VO3CallMe;
+
     public Sprite ManMan3;
     public Sprite Background3;
 
