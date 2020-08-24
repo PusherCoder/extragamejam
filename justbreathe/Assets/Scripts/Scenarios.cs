@@ -507,26 +507,26 @@ public class Scenarios
                     new RhythmAdjustment
                     {
                         Key = BreathKey,
-                        TimeDown = 2f,
-                        TimeUp = 2f
+                        TimeDown = 150f,
+                        TimeUp = 150f
                     },
                     new RhythmAdjustment
                     {
                         Key = HeartKey,
-                        TimeDown = 1f,
-                        TimeUp = 1f
+                        TimeDown = 150f,
+                        TimeUp = 150f
                     },
                     new RhythmAdjustment
                     {
                         Key = EyeKey,
-                        TimeDown = 5f,
-                        TimeUp = 5f
+                        TimeDown = 150f,
+                        TimeUp = 150f
                     },
                     new RhythmAdjustment
                     {
                         Key = IntestinesKey,
-                        TimeDown = 3f,
-                        TimeUp = 3f
+                        TimeDown = 150f,
+                        TimeUp = 150f
                     }
                 }
             },
@@ -541,9 +541,114 @@ public class Scenarios
 
             new GameScriptController
             {
-                ScenarioTime = 101.0f,
-                Subtitle = "",
-                VOClip = null
+                ScenarioTime = 16.0f,
+                Subtitle = "*Typing Noises*",
+                VOClip = manager.VO4Typing1,
+                Volume = .5f
+            },
+
+            new GameScriptController
+            {
+                ScenarioTime = 24.0f,
+                Subtitle = "My poor stomach. My poor. . . uh oh!",
+                VOClip = manager.VO4Stomach,
+                Volume = .5f
+            },
+
+            new GameScriptController
+            {
+                ScenarioTime = 30.0f,
+                Subtitle = "*Typing Intensifies*",
+                VOClip = manager.VO4Typing2,
+                Volume = .5f
+            },
+
+            new GameScriptController
+            {
+                ScenarioTime = 36.0f,
+                Subtitle = "Just need to get this report in so I can go to the bath-{Hey! How's it going?}",
+                VOClip = manager.VO4Report,
+                Volume = .5f
+            },
+
+            new GameScriptController
+            {
+                ScenarioTime = 42.0f,
+                Subtitle = "Oh, uh, just fine. H-how are you?",
+                VOClip = manager.VO4JustFine,
+                Volume = .5f
+            },
+
+            new GameScriptController
+            {
+                ScenarioTime = 53.0f,
+                Subtitle = "{Not bad. Hey, I just wanted to tell you that I might need to postpone our date on Saturday.}",
+                VOClip = manager.VO4Postpone,
+                Volume = .5f
+            },
+
+            new GameScriptController
+            {
+                ScenarioTime = 58.0f,
+                Subtitle = "Oh god, not now. PLEASE not now.",
+                VOClip = manager.VO4OhGod,
+                Volume = .5f
+            },
+
+            new GameScriptController
+            {
+                ScenarioTime =66.0f,
+                Subtitle = "Oh, y-yeah, no problem. Everything okay?",
+                VOClip = manager.VO4NoProblem,
+                Volume = .5f
+            },
+
+            new GameScriptController
+            {
+                ScenarioTime = 74.0f,
+                Subtitle = "{Yeah, it's just that I had a friend suddenly decide to come to town and he really wanted to hang out.}",
+                VOClip = manager.VO4Friend,
+                Volume = .5f
+            },
+
+            new GameScriptController
+            {
+                ScenarioTime = 80.0f,
+                Subtitle = "He!? HE wanted to hang out?",
+                VOClip = manager.VO4He,
+                Volume = .5f
+            },
+
+            new GameScriptController
+            {
+                ScenarioTime = 86.0f,
+                Subtitle = "Oh, that's cool. . . yeah.",
+                VOClip = manager.VO4Cool,
+                Volume = .5f
+            },
+
+            new GameScriptController
+            {
+                ScenarioTime = 91.0f,
+                Subtitle = "Burrito PLEASE!",
+                VOClip = manager.VO4Please,
+                Volume = .5f
+            },
+
+            new GameScriptController
+            {
+                ScenarioTime = 97.0f,
+                Subtitle = "Maybe we can do something the next weekend?",
+                VOClip = manager.VO4NextWeekend,
+                Volume = .5f
+            },
+
+            new GameScriptController
+            {
+                ScenarioTime = 110.0f,
+                Subtitle = "Maybe. . .",
+                VOClip = manager.VO4Maybe,
+                Volume = .5f
             },
         };
     }
